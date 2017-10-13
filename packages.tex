@@ -1,7 +1,10 @@
 % Pacotes usados neste documento e suas respectivas configurações
 
+% ------------------------------------------------------------------------------
+
 % seleção de línguas do texto (a última é a principal/default)
 \usepackage[english,brazilian]{babel}
+\selectlanguage{brazilian}
 
 % ------------------------------------------------------------------------------
 % Definição de fontes
@@ -56,6 +59,8 @@
                  {ú}{{\'u}}1  {Ú}{{\'U}}1
                  {ç}{{\c{c}}}1 {Ç}{{\c{C}}}1 }
 
+% ------------------------------------------------------------------------------
+
 % formatação de algoritmos
 \usepackage{algorithm,algorithmic}
 \floatname{algorithm}{Algoritmo}
@@ -64,13 +69,6 @@
 
 % ------------------------------------------------------------------------------
 
-% outros pacotes
-\usepackage{alltt,moreverb}	% mais comandos no modo verbatim
-\usepackage{lipsum}		% gera texto aleatório (para os exemplos)
-\usepackage{currfile}		% infos sobre o arquivo/diretório atual
-\usepackage[final]{pdfpages}	% inclusão de páginas em PDF
-\usepackage{longtable}		% tabelas multi-páginas (tab símbolos/acrônimos)
-
 % listas de símbolos e de abreviações (a fazer)
 %\usepackage[titles]{tocloft}
 %\newlistof[part]{symb}{los}{Lista de Símbolos}
@@ -78,4 +76,20 @@
 %\newcommand{\symb}[2]{%
 %\refstepcounter{symb}
 %\addcontentsline{los}{symb}{\protect #1 :#2}\par}
+
+% ------------------------------------------------------------------------------
+
+% formatação de bibliografia
+\usepackage{natbib}		% bibliografia no estilo NatBib
+
+% ------------------------------------------------------------------------------
+
+% outros pacotes diversos
+\usepackage{alltt,moreverb}	% mais comandos no modo verbatim
+\usepackage{lipsum}		% gera texto aleatório (para os exemplos)
+\usepackage{currfile}		% infos sobre o arquivo/diretório atual
+\usepackage[final]{pdfpages}	% inclusão de páginas em PDF
+\usepackage{longtable}		% tabelas multi-páginas (tab símbolos/acrônimos)
+
+% ------------------------------------------------------------------------------
 

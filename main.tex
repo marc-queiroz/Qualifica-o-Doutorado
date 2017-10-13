@@ -9,15 +9,18 @@
 % Adaptado de um modelo anterior construído pelo autor para o PPGIA/PUCPR.
 
 % Opções da classe ppginf:
-% - defesa: espaçamento 1,5, sem algumas páginas iniciais (default)
-% - final:  espaçamento simples, completa
-% - oneside: para impressão somente frente (default)
-% - twoside: para impressão frente/verso
+% - defesa  : espaçamento 1,5, sem algumas páginas iniciais (default)
+% - final   : espaçamento simples, completa.
+% - oneside : para impressão somente frente (default);
+%             use quando for gerar somente o PDF, sem impressão.
+% - twoside : para impressão frente/verso; use quando for gerar
+%             uma versão impressa, para economizar papel.
 % - ... (demais opções aceitas pela classe "book")
 
 % Opções default: defesa, oneside
 \documentclass[defesa,oneside]{ppginf}
-%\documentclass[final,twoside]{ppginf}
+%\documentclass[final,oneside]{ppginf}	% versão final, só em PDF
+%\documentclass[final,twoside]{ppginf}	% versão final, em PDF + impresso
 
 % configurações de diversos pacotes, inclusive o fonte principal do texto
 \include{packages}
@@ -29,7 +32,7 @@
 % Principais dados, usados para gerar as páginas iniciais.
 % Campos não utilizados podem ser removidos ou comentados.
 
-\title{Um modelo para dissertações e teses \\ (escrevi um título mais longo para ver como se comporta a quebra de linhas e o espaçamento entre elas)}
+\title{Um modelo \LaTeX\ para dissertações e teses \\ (escrevi um título mais longo para ver como se comporta a quebra de linhas e o espaçamento entre elas)}
 
 % palavras-chave e keywords
 \pchave{palavra-chave 1, palavra-chave 2, palavra-chave 3}
@@ -74,7 +77,7 @@
 \include{0-preambulo/dedica}		% dedicatória
 \include{0-preambulo/agradece}		% agradecimentos
 
-% inclui resumo e abstract
+% inclui resumo (português) e abstract (inglês), nesta ordem
 \include{0-preambulo/resumo}
 \include{0-preambulo/abstract}
 
@@ -104,6 +107,8 @@
 % Estilos de bibliografia recomendados (só descomentar um estilo!)
 \bibliographystyle{apalike-ptbr}	% [Maziero et al., 2006]
 %\bibliographystyle{plain}		% [1], [1, 2]
+%\bibliographystyle{alpha}		% [Maz06], ...
+%\bibliographystyle{plainnat}		% vide Google "LaTeX Natbib"
 
 % base de bibliografia (BibTeX)
 \bibliography{refs}

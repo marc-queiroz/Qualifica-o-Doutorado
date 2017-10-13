@@ -30,12 +30,14 @@
 %
 % Software fornecido sob a licença GNU GPL. Pode ser usada e modificada
 % livremente, desde que mantidas as informações deste cabeçalho.
+%
+% Autoria: prof. Carlos A. Maziero, DInf/UFPR (maziero@inf.ufpr.br)
 
 %------------------------------------------------------------------------------
 
 % definição da classe e versão
-\ProvidesClass{ppginf}[2016/10/19 Manuscript class for PPGInf/UFPR]
-\def\@classversion{0.9.5}
+\ProvidesClass{ppginf}[2017/01/03 Manuscript class for PPGInf/UFPR]
+\def\@classversion{0.9.6}
 
 %------------------------------------------------------------------------------
 
@@ -86,7 +88,7 @@
 % indentar o primeiro parágrafo (português)
 \RequirePackage{indentfirst}
 
-% indentação dos parágrafos é 10mm
+% indentação dos parágrafos
 \setlength{\parindent}{15mm}
 
 % aumentar o espaço entre a legenda e a tabela
@@ -95,13 +97,10 @@
 
 % espaçamento entre linhas
 \RequirePackage{setspace}
-
 \iffinalmode
-  % final: espaçamento 1
-  \singlespacing
+  \singlespacing   % final: espaçamento 1
 \else
-  % default: espaçamento 1.5
-  \onehalfspacing
+  \onehalfspacing  % default: espaçamento 1.5
 \fi
 
 % relaxar o espaçamento entre caracteres
@@ -117,14 +116,21 @@
 % de sumário, lista de figuras e lista de tabelas.
 \RequirePackage[nottoc,notlot,notlof]{tocbibind}
 
-% melhor formatação de URLs na bibliografia
-\RequirePackage[obeyspaces,hyphens]{url}
+% usar URLs na bibliografia (precisa ficar aqui pois conflita com outros pacotes)
+\usepackage[obeyspaces,hyphens]{url}
 
 %------------------------------------------------------------------------------
 
 % formatação de cabeçalho e rodapé
 \RequirePackage{fancyhdr}
 \setlength{\headheight}{15pt}
+
+% Contra todas as normas tipográficas, a biblioteca da UFPR exige que a numeração
+% da introdução leve em conta as páginas preliminares (ou seja, não comece em 1).
+\renewcommand\pagenumbering[1]{%
+  %\global\c@page\@ne % this resets the counter
+  \gdef\thepage{\csname @#1\endcsname\c@page}%
+}
 
 % sem linhas separadoras para cabeçalho e rodapé
 \renewcommand{\headrulewidth}{0pt}
@@ -227,7 +233,7 @@
 
 % ambientes da parte inicial do documento
 
-% resumo
+% ambiente resumo
 \newenvironment{resumo}
 {
   \clearpage
@@ -248,7 +254,7 @@
   \cleardoublepage
 }
 
-% abstract
+% ambiente abstract
 \newenvironment{abstract}
 {
   \clearpage
@@ -269,7 +275,7 @@
   \cleardoublepage
 }
 
-% agradecimentos e dedicatória (só na versão aprovada)
+% ambientes agradecimentos e dedicatória (só na versão aprovada)
 \iffinalmode
   % ambiente da ficha catalográfica
   \newenvironment{ficha}{}{\cleardoublepage}
@@ -335,10 +341,6 @@
 % construção das páginas iniciais
 \renewcommand{\titlepage}
 {
-  % páginas iniciais não são numeradas
-  %\pagestyle{empty}
-  %\thispagestyle{empty}
-
   % ajustar tags do PDF final
   \hypersetup{
     pdftitle    = {\@title},
@@ -391,33 +393,43 @@
     \end{center}
   \end{doublespace}
 
+  % na versão de defesa, indicar data de compilação do documento
+  \iffinalmode
+  \else
+    \begin{small}
+    \begin{center}
+      (\emph{vers\~ao pr\'e-defesa, compilada em \today})
+    \end{center}
+    \end{small}
+  \fi
+
   \vspace{1cm}
 
-  % selo descritivo
+  % construção do selo descritivo
   \hfill
   \begin{minipage}{9cm}
 
-    % descrição
+    % descrição do documento, se estiver definida
     \ifx\@descr\@empty
     \else
       \@descr.
     \fi
 
-    % área de concentração
+    % área de concentração, se estiver definida
     \ifx\@field\@empty
     \else
       \vspace{1em}
       \'Area de concentra\c{c}\~ao: \emph{\@field}.
     \fi
 
-    % orientador
+    % orientador, se estiver definido
     \ifx\@advisor\@empty
     \else
       \vspace{1em}
       Orientador: \@advisor.
     \fi
 
-    % coorientador
+    % coorientador, se estiver definido
     \ifx\@coadvisor\@empty
     \else
       \vspace{1em}

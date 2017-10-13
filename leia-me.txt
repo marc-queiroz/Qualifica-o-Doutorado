@@ -27,6 +27,12 @@ Para compilar, digite "make".
 
 Changelog ======================================================================
 
+2017/01/03 V0.9.6
+- primeira versão dupla: português e inglês
+- inclusão de mensagem sobre versão pré-defesa na 1a capa
+- estilo de bibliografia NatBib plainnat incluido em main.tex
+- numeração da introdução não deve começar em 1 (exig. da UFPR)
+
 2016/10/19 V0.9.5
 - em ppginf.cls, adicionada opção "hyphens" ao package "url"
 - criada variável "version" para a versão da classe ppginf.cls
@@ -65,7 +71,7 @@ Changelog ======================================================================
 
 2008/11/17 V0.9
 - opções "draft" e "final" conflitam com opções de documentclass, 
-  opçõo "draft" vira default e opção "final" renomeada para "aprovada"
+  opção "draft" vira default e opção "final" renomeada para "aprovada"
 - corrigida ortografia errada em "Abreviações"
 
 2008/07/16 V0.8
@@ -115,10 +121,13 @@ Changelog ======================================================================
 
 To do ==========================================================================
 
+- incluir \interfootnotelinepenalty=1000 para inibir a quebra de footnotes
 - automatizar a geração das lista de símbolos e abreviações
 - automatizar geração da ficha catalográfica
 - opção de inglês ou português (capa e rosto sempre em português)
-- usar o modelo de bibliografia natbib (\citep e \citet)
 - criar capítulos com conteúdo básico de uma dissertação ou tese
 - distribuir melhor os pacotes entre ppginf.cls e packages.tex
+- analisar uso de \backmatter
+- separar apêndices de anexos?
+- unificar versões em português e inglês, como opção no main.tex
 
