@@ -33,8 +33,9 @@
 
 %------------------------------------------------------------------------------
 
-% definição da classe
-\ProvidesClass{ppginf}[2016/05/16 V0.9.4 (Carlos Maziero)]
+% definição da classe e versão
+\ProvidesClass{ppginf}[2016/10/19 Manuscript class for PPGInf/UFPR]
+\def\@classversion{0.9.5}
 
 %------------------------------------------------------------------------------
 
@@ -117,7 +118,7 @@
 \RequirePackage[nottoc,notlot,notlof]{tocbibind}
 
 % melhor formatação de URLs na bibliografia
-\RequirePackage[obeyspaces]{url}
+\RequirePackage[obeyspaces,hyphens]{url}
 
 %------------------------------------------------------------------------------
 
@@ -129,17 +130,12 @@
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
 
-% estilo de página para prâmbulo (páginas iniciais) do documento
+% define o estilo de página do preâmbulo (páginas iniciais) do documento
 \fancypagestyle{frontmatter}{
   \fancyhf{}
 }
 
-% redefine o estilo default "plain" para nulo
-\fancypagestyle{plain}{
-  \fancyhf{}
-}
-
-% redefine o estilo de página para o corpo do documento
+% define o estilo de página do corpo do documento (capítulos)
 \fancypagestyle{mainmatter}{
   \fancyhf{}
   \if@twoside
@@ -149,11 +145,25 @@
   \fi
 }
 
+% define o estilo default "plain" como nulo nas páginas iniciais (frontmatter)
+% e igual a mainmatter no corpo do documento (para por números de página na
+% primeira página de cada capítulo).
+\fancypagestyle{plain}{
+  \fancyhf{}
+  \if@mainmatter
+    \if@twoside
+      \fancyhead[LE,RO]{\thepage}
+    \else
+      \fancyhead[R]{\thepage}
+    \fi
+  \fi
+}
+
 %------------------------------------------------------------------------------
 
 % pacotes para gerar um arquivo PDF "rico" (bookmarks, links, metadados)
-\RequirePackage[plainpages,pdfpagelabels]{hyperref} % PDF com links, metadados
-\RequirePackage{bookmark}		% cria um índice no PDF
+\RequirePackage[plainpages,pdfpagelabels]{hyperref}	% PDF com links, metadados
+\RequirePackage{bookmark}				% cria um índice no PDF
 
 % ajustar metadados e propriedades do PDF gerado
 \hypersetup{
@@ -187,8 +197,8 @@
 \def\@descr{}			% descrição do documento
 \def\@instshort{undef}		% instituição (abreviação)
 \def\@instlong{undef}		% instituição (por extenso)
-\def\@pcs{undef}		% palavras-chave
-\def\@kws{undef}		% keywords
+\def\@pcs{}			% palavras-chave
+\def\@kws{}			% keywords
 
 % instituição
 \newcommand{\instit}[2]{
@@ -228,8 +238,12 @@
   \end{center}
   \vspace{0.5ex}
 }{
-  \vspace{4ex}
-  \noindent\textbf{Palavras-chave:} {\@pcs}.
+  % somente mostrar palavras-chave se estiverem definidas
+  \ifx\@pcs\@empty
+  \else
+    \vspace{4ex}
+    \noindent\textbf{Palavras-chave:} {\@pcs}.
+  \fi
   \vfill
   \cleardoublepage
 }
@@ -245,8 +259,12 @@
   \end{center}
   \vspace{0.5ex}
 }{
-  \vspace{4ex}
-  \noindent\textbf{Keywords:} {\@kws}.
+  % somente mostrar keywords se estiverem definidas
+  \ifx\@kws\@empty
+  \else
+    \vspace{4ex}
+    \noindent\textbf{Keywords:} {\@kws}.
+  \fi
   \vfill
   \cleardoublepage
 }
@@ -327,6 +345,7 @@
     pdfauthor   = {\@author},
     pdfsubject  = {\@field},
     pdfproducer = {\@instshort\ - \@instlong},
+    pdfcreator  = {LaTeX, using PPGInf class V. \@classversion},
     pdfkeywords = {\@pcs, \@kws}
   }
 
@@ -379,7 +398,10 @@
   \begin{minipage}{9cm}
 
     % descrição
-    \@descr.
+    \ifx\@descr\@empty
+    \else
+      \@descr.
+    \fi
 
     % área de concentração
     \ifx\@field\@empty

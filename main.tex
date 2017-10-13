@@ -31,7 +31,7 @@
 
 \title{Um modelo para dissertações e teses \\ (escrevi um título mais longo para ver como se comporta a quebra de linhas e o espaçamento entre elas)}
 
-% Estas devem ser definidas aqui para poder incorporar nos metadados do PDF
+% palavras-chave e keywords
 \pchave{palavra-chave 1, palavra-chave 2, palavra-chave 3}
 \keyword{keyword 1, keyword 2, keyword 3}
 
@@ -41,7 +41,7 @@
 
 \field{Ciência da Computação}		% default do PPGInf, não mudar
 
-\date{2015}
+\date{2016}
 \local{Curitiba PR}
 \instit{UFPR}{Universidade Federal do Paraná}
 
@@ -61,24 +61,24 @@
 
 %=====================================================
 
-% páginas iniciais (preâmbulo)
+% define estilo das páginas iniciais (capas, resumo, sumário, etc)
 \frontmatter
 \pagestyle{frontmatter}
 
-% capa e folha de rosto
+% define capa e folha de rosto
 \titlepage
 
-% páginas que só aparecem na versão final (inclusão automática)
+% inclui páginas que só aparecem na versão final (inclusão automática)
 \include{0-preambulo/ficha}		% ficha catalográfica
 \include{0-preambulo/aprovacao}		% folha de aprovação
 \include{0-preambulo/dedica}		% dedicatória
 \include{0-preambulo/agradece}		% agradecimentos
 
-% resumo e abstract
+% inclui resumo e abstract
 \include{0-preambulo/resumo}
 \include{0-preambulo/abstract}
 
-% sumário e demais listas (figuras, tabelas, abreviações/siglas, símbolos)
+% define sumário e demais listas (figuras, tabelas, abreviações/siglas, símbolos)
 \tableofcontents
 \listoffigures
 \listoftables
@@ -87,7 +87,7 @@
 
 %=====================================================
 
-% corpo do documento
+% define estilo do corpo do documento (capítulos e apêndices)
 \mainmatter
 \pagestyle{mainmatter}
 
@@ -107,7 +107,7 @@
 
 % base de bibliografia (BibTeX)
 \bibliography{refs}
-%\bibliography{ref1, ref2, ref3} % se tiver mais de um arquivo BibTeX
+%\bibliography{file1, file2, file3} % se tiver mais de um arquivo BibTeX
 
 %=====================================================
 

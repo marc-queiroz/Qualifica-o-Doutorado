@@ -15,9 +15,9 @@ bib:
 
 # dessa forma somente os arquivos removidos são listados na saída
 clean:
-	@find . -xdev -iname \*~ -print -delete
-	@find . -xdev -iname \*.aux -print -delete
-	@find . -xdev -name texput.log -print -delete
+	@find . -xdev -iname \*~        -print -delete
+	@find . -xdev -iname \*.aux     -print -delete
+	@find . -xdev -name texput.log  -print -delete
 	@find . -xdev -name $(MAIN).log -print -delete
 	@find . -xdev -name $(MAIN).lot -print -delete
 	@find . -xdev -name $(MAIN).lof -print -delete
