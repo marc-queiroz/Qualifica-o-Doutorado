@@ -1,5 +1,5 @@
 Modelo LaTeX de dissertação/tese do PPGInf/UFPR
-Versão 0.9.3, novembro de 2015
+Versão 0.9.4, Maio de 2016
 Autor: prof. Carlos A. Maziero
 
 Este modelo é composto pelos seguintes arquivos:

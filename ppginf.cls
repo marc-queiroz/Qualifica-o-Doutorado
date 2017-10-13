@@ -30,91 +30,11 @@
 %
 % Software fornecido sob a licença GNU GPL. Pode ser usada e modificada
 % livremente, desde que mantidas as informações deste cabeçalho.
-%
-% Histórico:
-%
-% 2007/06/01 V0.1
-% - versão inicial, por Carlos Maziero (maziero@ppgia.pucpr.br). 
-%
-% 2007/06/15
-% - comando \keywords
-% - mais comentários explicativos
-% - ajustes para evitar linhas órfãs e viúvas
-%
-% 2007/08/08 V0.2
-% - mudei fontenc para T1, para acertar acentos no PDF
-% - mudei package de "txfonts" para "times"
-%
-% 2007/08/08 V0.3
-% - coloquei flag -tA4 no dvips (Makefile e instruções de uso)
-%
-% 2007/09/02 V0.4
-% - listasimb e listabrev
-% - resumo, abstract e agradecimentos em negrito
-%
-% 2008/03/12 V0.5
-% - ajustei a ordem das paginas iniciais (resumo, sumário, etc)
-%
-% 2008/06/03 V0.6
-% - substituição do Makefile pelo script build (mais completo)
-% - inclusão da opção "final" para gerar a versão final
-% - estilo "apalike" para bibliografia
-%
-% 2008/06/11 V0.7
-% - inclusão automatica da ficha catalográfica, agradecimentos
-%   e dedicatória na versão final do documento
-% - ficha catalográfica no verso da segunda capa
-%
-% 2008/07/16 V0.8
-% - removidos packages obsoletos (vide documento l2tabuen.pdf)
-% - dimensões da página definidas com package "geometry"
-% - espaçamento: troca de \baselinestretch por \linespread
-% - indentação de parágrafo mudou de 12.7mm para 4em
-% - trocados \bf e \sc por \textbf e \textsc
-% - adotado o package setspace para espaçamento entre linhas
-% - linhas do título mais espaçadas sempre, mesmo no modo "final"
-% - fontes ajustados para o padrão LaTeX2e
-% - ajustada fonte default do package listings para tt footnotesize
-% - retirados alguns acentos ISO deste arquivo (compatibilidade UTF8)
-% - acentos \'i modificados para \'{\i}
-%
-% 2008/11/17 V0.9
-% - opções "draft" e "final" conflitam com opções de documentclass, 
-%   opçõo "draft" vira default e opção "final" renomeada para "aprovada"
-% - corrigida ortografia errada em "Abreviações"
-%
-% 2009/06/03 V0.9.1
-% - incluso exemplo de citação bibliográfica contendo URL
-% - ajustes no texto do modelo Cap 1 e 2
-%
-% 2014/03/18 V0.9.2
-% - versão para o PPGCA/UTFPR
-% - adicionada opção "defesa"
-% - reorganização do texto dos capítulos de exemplo
-%
-% 2015/11/30 V0.9.3
-% - versão para o PPGINF/UFPR
-% - todos os arquivos em UTF8
-% - descrição genérica, ajustável para qualquer tipo de monografia
-% - usuário pode optar oneside/twoside
-% - usuário pode escolher formato de bibliografia
-% - reorganização dos arquivos em diretórios
-% - criação de Makefile mínimo
-% - pacote ifthen substituido por comandos TeX
-% - ajustes para ficar mais próximo do formato da Bib UFPR (pero no mucho)
-% - opções do pacote listings ajustadas para aceitar UTF8
-
-% Ainda por fazer:
-% - melhorar lista de símbolos e abreviações (usar package para listas)
-% - automatizar geração da ficha catalográfica
-% - ajustes para permitir documento em inglês
-% - traduzir o modelo de bibliografia apalike
-% - usar o modelo de bibliografia natbib (\citep e \citet)
 
 %------------------------------------------------------------------------------
 
 % definição da classe
-\ProvidesClass{ppginf}[2015/11/30 V0.9.3 (Carlos Maziero)]
+\ProvidesClass{ppginf}[2016/05/16 V0.9.4 (Carlos Maziero)]
 
 %------------------------------------------------------------------------------
 
@@ -384,7 +304,7 @@
 % lista de símbolos
 \newenvironment{listasimb}
 {
-  \chapter*{Lista de S\'imbolos}
+  \chapter*{Lista de S\'{\i}mbolos}
 %  \phantomsection
 %  \addcontentsline{toc}{chapter}{Lista de S\'{\i}mbolos}
 }{
@@ -422,6 +342,7 @@
         \textsc{\Large\@author}
         \\
         \vfill
+        \DeclareRobustCommand\\{\linebreak}
         \textsc{\Large\@title}
         \vfill
         \textsc{\Large\@local\\\@date}
@@ -444,11 +365,12 @@
   \vfill\vfill
 
   % título
-  \begin{center}
-    \begin{doublespace}
+  \begin{doublespace}
+    \begin{center}
+      \DeclareRobustCommand\\{\linebreak }
       \textsc{\Large\@title}
-    \end{doublespace}
-  \end{center}
+    \end{center}
+  \end{doublespace}
 
   \vspace{1cm}
 

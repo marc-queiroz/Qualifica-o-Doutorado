@@ -25,3 +25,6 @@ clean:
 	@find . -xdev -name $(MAIN).bbl -print -delete
 	@find . -xdev -name $(MAIN).blg -print -delete
 
+purge: clean
+	@rm -f $(MAIN)_$(USER).pdf
+
