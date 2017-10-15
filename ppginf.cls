@@ -2,9 +2,9 @@
 
 % EM USO NORMAL, ESTE ARQUIVO NÃO DEVE SER MODIFICADO!
 
-% Esta classe "tese" define o padrão para dissertações, teses e documentos
-% correlatos produzidos no Programa de Pós-Graduação em Informática da
-% Universidade Federal do Paraná, em Curitiba PR.
+% Esta classe define o padrão para dissertações, teses e documentos
+% correlatos produzidos no Programa de Pós-Graduação em Informática
+% da Universidade Federal do Paraná, em Curitiba PR.
 %
 % Esta classe segue o modelo da classe "book" e aceita todas as suas opções.
 % Ela também define as seguintes opções específicas:
@@ -21,6 +21,7 @@
 % \field{Área}		: define a área de concentração da pesquisa
 % \local{Cidade}	: define o local da defesa
 % \keywords{}{}...	: define três palavras-chave e três keywords
+% \coverimage{}		: define a imagem de fundo da capa
 % \begin{resumo}	: define a página de resumo
 % \begin{abstract}	: define a página de abstract
 % \begin{agradece}	: define a página de agradecimentos
@@ -36,8 +37,8 @@
 %------------------------------------------------------------------------------
 
 % definição da classe e versão
-\ProvidesClass{ppginf}[2017/01/03 Manuscript class for PPGInf/UFPR]
-\def\@classversion{0.9.6}
+\ProvidesClass{ppginf}[2017/10/15 Manuscript class for PPGInf/UFPR]
+\def\@classversion{0.9.7}
 
 %------------------------------------------------------------------------------
 
@@ -85,11 +86,18 @@
 \geometry{right=2cm,left=2cm,top=3cm,bottom=2cm}
 \geometry{bindingoffset=1cm}
 
-% indentar o primeiro parágrafo (português)
+% indentar o primeiro parágrafo (português) em 15mm
 \RequirePackage{indentfirst}
-
-% indentação dos parágrafos
 \setlength{\parindent}{15mm}
+
+% indentar listas de itens alinhadas aos parágrafos
+\usepackage{enumitem}
+\setlist[itemize,1]{leftmargin=\parindent}
+\setlist[itemize,2]{leftmargin=0.5\parindent}
+\setlist[enumerate,1]{leftmargin=\parindent}
+\setlist[enumerate,2]{leftmargin=0.5\parindent}
+\setlist[description,1]{leftmargin=\parindent}
+\setlist[description,2]{leftmargin=0.5\parindent}
 
 % aumentar o espaço entre a legenda e a tabela
 \usepackage{caption} 
@@ -119,11 +127,20 @@
 % usar URLs na bibliografia (precisa ficar aqui pois conflita com outros pacotes)
 \usepackage[obeyspaces,hyphens]{url}
 
+% para adiconar imagem de fundo à capa
+\RequirePackage{wallpaper}
+
 %------------------------------------------------------------------------------
+
+% CONTROLE DE NUMERAÇÃO DE PÁGINAS
 
 % formatação de cabeçalho e rodapé
 \RequirePackage{fancyhdr}
 \setlength{\headheight}{15pt}
+
+% sem linhas separadoras para cabeçalho e rodapé
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
 
 % Contra todas as normas tipográficas, a biblioteca da UFPR exige que a numeração
 % da introdução leve em conta as páginas preliminares (ou seja, não comece em 1).
@@ -131,10 +148,6 @@
   %\global\c@page\@ne % this resets the counter
   \gdef\thepage{\csname @#1\endcsname\c@page}%
 }
-
-% sem linhas separadoras para cabeçalho e rodapé
-\renewcommand{\headrulewidth}{0pt}
-\renewcommand{\footrulewidth}{0pt}
 
 % define o estilo de página do preâmbulo (páginas iniciais) do documento
 \fancypagestyle{frontmatter}{
@@ -167,6 +180,8 @@
 
 %------------------------------------------------------------------------------
 
+% CONTROLE DO PDF GERADO
+
 % pacotes para gerar um arquivo PDF "rico" (bookmarks, links, metadados)
 \RequirePackage[plainpages,pdfpagelabels]{hyperref}	% PDF com links, metadados
 \RequirePackage{bookmark}				% cria um índice no PDF
@@ -193,8 +208,9 @@
 
 %------------------------------------------------------------------------------
 
-% definição de autor, orientador, local, área, palavras-chave, etc
+% COMANDOS PARA DEFINIÇÕES FEITAS NO MAIN.TEX
 
+% definição de autor, orientador, local, área, palavras-chave, etc
 % valores default (não mudá-los, pois poderão ser testados em macros)
 \def\@advisor{}			% orientador
 \def\@coadvisor{}		% co-orientador
@@ -205,6 +221,7 @@
 \def\@instlong{undef}		% instituição (por extenso)
 \def\@pcs{}			% palavras-chave
 \def\@kws{}			% keywords
+\def\@coverimg{}		% imagem de fundo da capa
 
 % instituição
 \newcommand{\instit}[2]{
@@ -229,9 +246,12 @@
 \newcommand{\pchave}[1]{\def\@pcs{#1}}
 \newcommand{\keyword}[1]{\def\@kws{#1}}
 
+% imagem de fundo da capa
+\newcommand{\coverimage}[1]{\def\@coverimg{#1}}
+
 %------------------------------------------------------------------------------
 
-% ambientes da parte inicial do documento
+% AMBIENTES DA PARTE INICIAL DO DOCUMENTO
 
 % ambiente resumo
 \newenvironment{resumo}
@@ -338,10 +358,11 @@
 
 %------------------------------------------------------------------------------
 
-% construção das páginas iniciais
+% CONSTRUÇÃO DAS PÁGINAS INICIAIS
+
 \renewcommand{\titlepage}
 {
-  % ajustar tags do PDF final
+  % ajustar tags do PDF final (só funciona bem se estiver aqui)
   \hypersetup{
     pdftitle    = {\@title},
     pdfauthor   = {\@author},
@@ -351,10 +372,18 @@
     pdfkeywords = {\@pcs, \@kws}
   }
 
-  % primeira capa (só na versão aprovada)
+  % PRIMEIRA CAPA (SÓ NA VERSÃO APROVADA)
   \iffinalmode
 %    \phantomsection
 %    \thispagestyle{empty}
+
+    % imagem de fundo da capa, se estiver definida em main.tex
+    \ifx\@coverimg\@empty
+    \else
+      \ThisCenterWallPaper{1.0}{\@coverimg}
+    \fi
+
+    % conteúdo da capa
     \begin{center}
       \begin{doublespace}
         \textsc{\Large\@instlong}
@@ -372,7 +401,7 @@
     \cleardoublepage
   \fi
 
-  % folha de rosto
+  % FOLHA DE ROSTO
   \clearpage
 %  \phantomsection
 %  \addcontentsline{toc}{chapter}{Rosto}
@@ -409,27 +438,27 @@
   \hfill
   \begin{minipage}{9cm}
 
-    % descrição do documento, se estiver definida
+    % descrição do documento, se estiver definida em main.tex
     \ifx\@descr\@empty
     \else
       \@descr.
     \fi
 
-    % área de concentração, se estiver definida
+    % área de concentração, se estiver definida em main.tex
     \ifx\@field\@empty
     \else
       \vspace{1em}
       \'Area de concentra\c{c}\~ao: \emph{\@field}.
     \fi
 
-    % orientador, se estiver definido
+    % orientador, se estiver definido em main.tex
     \ifx\@advisor\@empty
     \else
       \vspace{1em}
       Orientador: \@advisor.
     \fi
 
-    % coorientador, se estiver definido
+    % coorientador, se estiver definido em main.tex
     \ifx\@coadvisor\@empty
     \else
       \vspace{1em}

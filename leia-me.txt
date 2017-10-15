@@ -6,20 +6,21 @@ Conteúdo ======================================================================
   ppginf.cls		: classe com as principais características do modelo
   main.tex		: fonte principal, que inclui os demais
   packages.tex		: inclusão de packages úteis para a redação
-  refs.bib		: referências bibliográficas (BibTeX)
-  0-preambulo/		: diretório com as páginas iniciais
-      ficha.tex		: ficha catalográfica
-      aprovacao.tex	: folha de aprovação
-      dedica.tex	: dedicatória
-      agradece.tex	: agradecimentos
+  referencias.bib	: referências bibliográficas (BibTeX)
+  0-iniciais/		: diretório com as páginas iniciais
       resumo.tex	: resumo e palavras-chave
       abstract.tex	: abstract and keywords
+      agradece.tex	: agradecimentos
+      dedica.tex	: dedicatória
+      aprovacao.tex	: folha de aprovação
+      catalografica.tex	: ficha catalográfica
       acronimos.tex	: lista de acrônimos (siglas)
       simbolos.tex	: lista de símbolos
+      fundo-capa.jpg	: imagem de fundo da capa
   1-intro/		: diretório do capítulo 1 (Introdução)
-      main.tex		: texto do capítulo 1
+      texto.tex		: texto do capítulo 1
       figuras/		: figuras do capítulo 1
-  2-fundam		: ... (e assim por diante)
+  2-fundam/		: ... (idem)
   a1-exemplo/		: Anexo 1
   Makefile		: usado para construir o PDF ;-)
 
@@ -27,11 +28,21 @@ Para compilar, digite "make".
 
 Changelog ======================================================================
 
+2017/10/15 V0.9.7
+- indentação de listas (itemize, enumerate, etc) alinhada com parágrafos
+- longtables em acronimos.tex e simbolos.tex permitem quebra de linhas
+- diretório 0-preambulo/ renomeado para 0-iniciais/
+- arquivos LaTeX de cada capítulo renomeados para "texto.tex"
+- arquivo refs.bib renomeado para referencias.bib
+- incluídas fichas catalográfica e de aprovação "fake" em formato PDF
+- corrigido bug na inclusão de aprovacao.pdf e catalografica.pdf
+- comando \coverimage{} permite definir imagem de fundo da capa
+
 2017/01/03 V0.9.6
 - primeira versão dupla: português e inglês
 - inclusão de mensagem sobre versão pré-defesa na 1a capa
 - estilo de bibliografia NatBib plainnat incluido em main.tex
-- numeração da introdução não deve começar em 1 (exig. da UFPR)
+- numeração da introdução não deve começar em 1 (exig. da Bib/UFPR)
 
 2016/10/19 V0.9.5
 - em ppginf.cls, adicionada opção "hyphens" ao package "url"
@@ -130,4 +141,6 @@ To do ==========================================================================
 - analisar uso de \backmatter
 - separar apêndices de anexos?
 - unificar versões em português e inglês, como opção no main.tex
+- posicionar ficha catalográfica no verso da 2a capa
+- incluir imagem de fundo na capa
 
