@@ -12,8 +12,10 @@ Conteúdo ======================================================================
       abstract.tex	: abstract and keywords
       agradece.tex	: agradecimentos
       dedica.tex	: dedicatória
-      aprovacao.tex	: folha de aprovação
-      catalografica.tex	: ficha catalográfica
+      aprovacao.tex	: inclusão da folha de aprovação
+      aprovacao.pdf	: folha de aprovação "fake"
+      catalografica.tex	: inclusão da ficha catalográfica
+      catalografica.pdf	: ficha catalográfica "fake"
       acronimos.tex	: lista de acrônimos (siglas)
       simbolos.tex	: lista de símbolos
       fundo-capa.jpg	: imagem de fundo da capa
