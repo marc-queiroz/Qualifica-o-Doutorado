@@ -5,7 +5,9 @@ https://gitlab.c3sl.ufpr.br/modelos/tese.git
 
 Descrição:
 
-Modelo LaTeX para dissertações, teses, qualificações, trabalhos finais de graduação e outros documentos similares. Previamente configurado para o PPGInf/UFPR, mas pode ser facilmente ajustado para outros programas, cursos e universidades.
+Modelo LaTeX para dissertações, teses, qualificações, trabalhos finais de graduação
+e outros documentos similares. Previamente configurado para o PPGInf/UFPR, mas pode
+ser facilmente ajustado para outros programas, cursos e universidades.
 
 Conteúdo:
 
