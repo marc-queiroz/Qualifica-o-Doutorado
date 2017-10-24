@@ -1,9 +1,11 @@
 Modelo LaTeX de dissertação/tese do PPGInf/UFPR
 Autor: prof. Carlos A. Maziero (maziero@inf.ufpr.br)
+http://wiki.inf.ufpr.br/maziero/doku.php?id=software:latex
+https://gitlab.c3sl.ufpr.br/modelos/tese.git
 
 Descrição:
 
-
+Modelo LaTeX para dissertações, teses, qualificações, trabalhos finais de graduação e outros documentos similares. Previamente configurado para o PPGInf/UFPR, mas pode ser facilmente ajustado para outros programas, cursos e universidades.
 
 Conteúdo:
 
