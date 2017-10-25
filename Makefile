@@ -1,14 +1,15 @@
 # Makefile básico, sugestões são bem-vindas...
-# Carlos Maziero @UFPR, nov 2015
+# Carlos Maziero @UFPR, out 2017
 
 MAIN=main
+OUTPUT=$(MAIN)_$(USER).pdf	# a pedido da coordenacao
 
 main: $(MAIN).tex
 	@pdflatex $(MAIN)
 	@bibtex   $(MAIN)
 	@pdflatex $(MAIN)
 	@pdflatex $(MAIN)
-	@mv $(MAIN).pdf $(MAIN)_$(USER).pdf # a pedido da coordenação
+	@mv $(MAIN).pdf $(OUTPUT)
 
 bib:
 	@bibtex $(MAIN)
@@ -26,5 +27,5 @@ clean:
 	@find . -xdev -name $(MAIN).blg -print -delete
 
 purge: clean
-	@rm -f $(MAIN)_$(USER).pdf
+	@rm -f $(OUTPUT)
 
