@@ -1,7 +1,7 @@
 Modelo LaTeX de dissertação/tese do PPGInf/UFPR
 Autor: prof. Carlos A. Maziero (maziero@inf.ufpr.br)
 http://wiki.inf.ufpr.br/maziero/doku.php?id=software:latex
-https://gitlab.c3sl.ufpr.br/modelos/tese.git
+https://gitlab.c3sl.ufpr.br/maziero/tese
 
 Descrição:
 
