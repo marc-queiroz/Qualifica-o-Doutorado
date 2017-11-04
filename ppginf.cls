@@ -127,7 +127,7 @@
 % usar URLs na bibliografia (precisa ficar aqui pois conflita com outros pacotes)
 \usepackage[obeyspaces,hyphens]{url}
 
-% para adiconar imagem de fundo à capa
+% para adicionar imagem de fundo à capa
 \RequirePackage{wallpaper}
 
 %------------------------------------------------------------------------------
