@@ -17,7 +17,7 @@
 % \descr{...}		: descrição do documento na folha de rosto
 % \instit{short}{long}	: instituição (abreviado e por extenso)
 % \advisor{Nome}	: define o orientador
-% \coadvisor{Nome}	: define o co-orientador, se houver
+% \coadvisor{Nome}	: define o coorientador, se houver
 % \field{Área}		: define a área de concentração da pesquisa
 % \local{Cidade}	: define o local da defesa
 % \keywords{}{}...	: define três palavras-chave e três keywords
@@ -213,7 +213,7 @@
 % definição de autor, orientador, local, área, palavras-chave, etc
 % valores default (não mudá-los, pois poderão ser testados em macros)
 \def\@advisor{}			% orientador
-\def\@coadvisor{}		% co-orientador
+\def\@coadvisor{}		% coorientador
 \def\@field{}			% área de concentração
 \def\@local{}			% local
 \def\@descr{}			% descrição do documento
@@ -462,7 +462,7 @@
     \ifx\@coadvisor\@empty
     \else
       \vspace{1em}
-      Co-orientador: \@coadvisor.
+      Coorientador: \@coadvisor.
     \fi
 
   \end{minipage}
