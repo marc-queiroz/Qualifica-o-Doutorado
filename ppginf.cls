@@ -92,12 +92,28 @@
 
 % indentar listas de itens alinhadas aos parágrafos
 \usepackage{enumitem}
-\setlist[itemize,1]{leftmargin=\parindent}
-\setlist[itemize,2]{leftmargin=0.5\parindent}
-\setlist[enumerate,1]{leftmargin=\parindent}
-\setlist[enumerate,2]{leftmargin=0.5\parindent}
-\setlist[description,1]{leftmargin=\parindent}
-\setlist[description,2]{leftmargin=0.5\parindent}
+\setlist[1]{leftmargin=\parindent}
+\setlist[2]{leftmargin=0.5\parindent}
+
+% corrigir recuos nos ambientes quote e quotation
+\renewenvironment{quotation}{%
+  \list{}{%
+    \leftmargin=\parindent%
+    \rightmargin=\parindent%
+    \listparindent 0.5\parindent%
+    \itemindent    \listparindent
+    \rightmargin   \leftmargin
+    \parsep        \z@ \@plus\p@}%
+  \item\relax}
+{\endlist}
+\renewenvironment{quote}{%
+  \list{}{%
+    \leftmargin=\parindent%
+    \rightmargin=\parindent%
+    \rightmargin\leftmargin%
+  }%
+  \item\relax}%
+{\endlist}
 
 % aumentar o espaço entre a legenda e a tabela
 \usepackage{caption} 

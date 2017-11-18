@@ -9,10 +9,13 @@
 % Adaptado de um modelo anterior construído pelo autor para o PPGIA/PUCPR.
 
 % Opções da classe ppginf:
-% - defesa  : espaçamento 1,5, sem algumas páginas iniciais (default)
-% - final   : espaçamento simples, completa.
-% - oneside : para impressão somente frente (default);
-%             use quando for gerar somente o PDF, sem impressão.
+%
+% - defesa  : versão para entregar à banca; tem espaçamento 1,5
+%             e omite algumas páginas iniciais (agradecimentos, etc)
+% - final   : versão pós-defesa, para enviar à biblioteca;
+%             tem espaçamento simples e todas as páginas iniciais.
+% - oneside : para impressão somente frente; use quando for gerar
+%             somente o PDF, sem impressão.
 % - twoside : para impressão frente/verso; use quando for gerar
 %             uma versão impressa, para economizar papel.
 % - ... (demais opções aceitas pela classe "book")
@@ -32,6 +35,7 @@
 % Principais dados, usados para gerar as páginas iniciais.
 % Campos não utilizados podem ser removidos ou comentados.
 
+% título :-)
 \title{Um modelo \LaTeX\ para dissertações e teses \\ (escrevi um título mais longo para ver como se comporta a quebra de linhas e o espaçamento entre elas)}
 
 % palavras-chave e keywords
@@ -44,8 +48,10 @@
 \coadvisor{Leslie Lamport}
 \instit{UFPR}{Universidade Federal do Paraná}
 
-\field{Ciência da Computação}		% default do PPGInf, não mudar
+% área de concentração (default do PPGInf, não mudar)
+\field{Ciência da Computação}
 
+% local e data
 \date{2016}
 \local{Curitiba PR}
 
@@ -104,7 +110,7 @@
 \mainmatter
 \pagestyle{mainmatter}
 
-% inclusao de cada capítulo, alterar a gosto (do professor de Metodologia...)
+% inclusao de cada capítulo, alterar a gosto (do professor de Metodologia)
 \include{1-intro/texto}			% introdução
 \include{2-fundam/texto}		% fundamentação teórica
 \include{3-revbib/texto}		% revisão bibliográfica (estado da arte)
@@ -126,7 +132,7 @@
 
 %=====================================================
 
-% apêndices
+% inclusão de apêndices
 \appendix
 \include{a1-exemplo/texto}
 
