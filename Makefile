@@ -16,15 +16,11 @@ bib:
 
 # dessa forma somente os arquivos removidos são listados na saída
 clean:
-	@find . -xdev -iname \*~        -print -delete
-	@find . -xdev -iname \*.aux     -print -delete
-	@find . -xdev -name texput.log  -print -delete
-	@find . -xdev -name $(MAIN).log -print -delete
-	@find . -xdev -name $(MAIN).lot -print -delete
-	@find . -xdev -name $(MAIN).lof -print -delete
-	@find . -xdev -name $(MAIN).toc -print -delete
-	@find . -xdev -name $(MAIN).bbl -print -delete
-	@find . -xdev -name $(MAIN).blg -print -delete
+	@find . -xdev -iname \*~    -print -delete
+	@find . -xdev -iname \*.aux -print -delete
+	-rm -f texput.log
+	-rm -f $(MAIN).log $(MAIN).lot $(MAIN).lof
+	-rm -f $(MAIN).toc $(MAIN).bbl $(MAIN).blg
 
 purge: clean
 	@rm -f $(OUTPUT)

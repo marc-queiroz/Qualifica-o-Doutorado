@@ -160,6 +160,7 @@
 
 % Contra todas as normas tipográficas, a biblioteca da UFPR exige que a numeração
 % da introdução leve em conta as páginas preliminares (ou seja, não comece em 1).
+% Caso as regras de sua universidade sejam "normais", comente as linhas abaixo.
 \renewcommand\pagenumbering[1]{%
   %\global\c@page\@ne % this resets the counter
   \gdef\thepage{\csname @#1\endcsname\c@page}%
