@@ -86,6 +86,12 @@
 \geometry{right=2cm,left=2cm,top=3cm,bottom=2cm}
 \geometry{bindingoffset=1cm}
 
+% mudar o título dos capítulos para "1. Introdução", etc
+% ATENCAO: https://tex.stackexchange.com/questions/299969/titlesec-loss-of-section-numbering-with-the-new-update-2016-03-15
+%\RequirePackage{titlesec}
+%\titleformat{\chapter}[hang]
+%{\huge\bfseries}{\thechapter.}{1em}{\Huge\bfseries}
+
 % indentar o primeiro parágrafo (português) em 15mm
 \RequirePackage{indentfirst}
 \setlength{\parindent}{15mm}
