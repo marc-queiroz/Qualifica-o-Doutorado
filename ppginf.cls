@@ -86,7 +86,7 @@
 \geometry{right=2cm,left=2cm,top=3cm,bottom=2cm}
 \geometry{bindingoffset=1cm}
 
-% mudar o título dos capítulos para "1. Introdução", etc
+% para mudar o título dos capítulos para "1. Introdução", etc
 % ATENCAO: https://tex.stackexchange.com/questions/299969/titlesec-loss-of-section-numbering-with-the-new-update-2016-03-15
 %\RequirePackage{titlesec}
 %\titleformat{\chapter}[hang]
@@ -422,6 +422,10 @@
       \end{doublespace}
     \end{center}
     \cleardoublepage
+    
+    % reiniciar numeração de páginas, para não contar a capa;
+    % segundo a bib@UFPR a capa final não deve contar como página
+    \setcounter{page}{1}
   \fi
 
   % FOLHA DE ROSTO
