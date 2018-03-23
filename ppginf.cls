@@ -320,11 +320,16 @@
 
 % ambientes agradecimentos e dedicatória (só na versão aprovada)
 \iffinalmode
+
   % ambiente da ficha catalográfica
-  \newenvironment{ficha}{}{\cleardoublepage}
+  \newenvironment{ficha}
+  {\addtocounter{page}{-1}} % não conta no número de páginas (Bib UFPR)
+  {\cleardoublepage}
 
   % ambiente da folha de aprovação
-  \newenvironment{aprovacao}{}{\cleardoublepage}
+  \newenvironment{aprovacao}
+  {}
+  {\cleardoublepage}
 
   % ambiente de agradecimentos
   \newenvironment{agradece}
@@ -351,10 +356,10 @@
   }
 \else
   % Na versão de defesa, esses ambientes não geram nada
-  \newenvironment{ficha}{\comment}{\endcomment}
-  \newenvironment{agradece}{\comment}{\endcomment}
-  \newenvironment{dedica}{\comment}{\endcomment}
-  \newenvironment{aprovacao}{\comment}{\endcomment}
+  \newenvironment{ficha}     {\comment} {\endcomment}
+  \newenvironment{agradece}  {\comment} {\endcomment}
+  \newenvironment{dedica}    {\comment} {\endcomment}
+  \newenvironment{aprovacao} {\comment} {\endcomment}
 \fi
 
 % lista de acrônimos (siglas e abreviações)
@@ -424,7 +429,7 @@
     \cleardoublepage
     
     % reiniciar numeração de páginas, para não contar a capa;
-    % segundo a bib@UFPR a capa final não deve contar como página
+    % segundo a bib@UFPR a capa não deve contar como página
     \setcounter{page}{1}
   \fi
 

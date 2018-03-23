@@ -1,5 +1,12 @@
 Changelog:
 
+Mudanças recentes:
+- capa da versão final não conta como página para efeitos de numeração
+- ficha catalográfica  não conta como página para efeitos de numeração
+- inclusão de "unsrt" como formato de bibliografia sugerido
+- pequenas melhorias no Makefile
+- ajustes nos recuos de quote e quotation
+
 2017/10/15 V0.9.7
 - indentação de listas (itemize, enumerate, etc) alinhada com parágrafos
 - longtables em acronimos.tex e simbolos.tex permitem quebra de linhas
