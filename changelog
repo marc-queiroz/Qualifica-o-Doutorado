@@ -1,9 +1,19 @@
 Changelog:
 
-Mudanças recentes:
+28/03/18
+- listas de figuras/tabelas/... colocadas antes do sumário
+
+22/03/18
 - capa da versão final não conta como página para efeitos de numeração
-- ficha catalográfica  não conta como página para efeitos de numeração
+
+19/02/18
+- adicionada possibilidade de mudar formato do título de capitulo
+
+16/02/18
 - inclusão de "unsrt" como formato de bibliografia sugerido
+
+17/11/2017
+- correções de ortografia
 - pequenas melhorias no Makefile
 - ajustes nos recuos de quote e quotation
 
