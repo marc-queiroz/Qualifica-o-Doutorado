@@ -37,8 +37,8 @@
 %------------------------------------------------------------------------------
 
 % definição da classe e versão
-\ProvidesClass{ppginf}[2017/10/15 Manuscript class for PPGInf/UFPR]
-\def\@classversion{0.9.7}
+\ProvidesClass{ppginf}[2018/05/22 Manuscript class for PPGInf/UFPR]
+\def\@classversion{0.9.9}
 
 %------------------------------------------------------------------------------
 
@@ -87,10 +87,28 @@
 \geometry{bindingoffset=1cm}
 
 % para mudar o título dos capítulos para "1. Introdução", etc
-% ATENCAO: https://tex.stackexchange.com/questions/299969/titlesec-loss-of-section-numbering-with-the-new-update-2016-03-15
-%\RequirePackage{titlesec}
-%\titleformat{\chapter}[hang]
-%{\huge\bfseries}{\thechapter.}{1em}{\Huge\bfseries}
+% ATENCAO: https://tex.stackexchange.com/questions/299969/titlesec-loss-of-
+% section-numbering-with-the-new-update-2016-03-15
+\RequirePackage{titlesec}
+\titleformat{\chapter}[hang]{\huge\bfseries}{\thechapter}{1ex}{}
+
+% por exigência da bib@ufpr, muda título de apêndice para "Apêndice A: blá blá
+% blá" no texto e no sumário (fonte: https://stackoverflow.com/questions/717316/
+% how-to-make-appendix-appear-in-toc-in-latex, adaptado)
+\newcommand\appendix@chapter[1]{%
+  \refstepcounter{chapter}%
+  \orig@chapter*{Ap\^endice \@Alph\c@chapter: #1}%
+  \addcontentsline{toc}{chapter}{Ap\^endice \@Alph\c@chapter: #1}}%
+\let\orig@chapter\chapter
+\g@addto@macro\appendix{\let\chapter\appendix@chapter}
+
+% por exigência da bib@ufpr, remove indentações no sumário
+\RequirePackage{tocloft}
+\cftsetindents{part}         {0mm} {15mm}
+\cftsetindents{chapter}      {0mm} {15mm}
+\cftsetindents{section}      {0mm} {15mm}
+\cftsetindents{subsection}   {0mm} {15mm}
+\cftsetindents{subsubsection}{0mm} {15mm}
 
 % indentar o primeiro parágrafo (português) em 15mm
 \RequirePackage{indentfirst}
@@ -164,8 +182,8 @@
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
 
-% Contra todas as normas tipográficas, a biblioteca da UFPR exige que a numeração
-% da introdução leve em conta as páginas preliminares (ou seja, não comece em 1).
+% por exigência da bib@ufpr (e contra todas as normas tipográficas), a numeração
+% da introdução deve considerar as páginas preliminares (i.e. não começa em 1).
 % Caso as regras de sua universidade sejam "normais", comente as linhas abaixo.
 \renewcommand\pagenumbering[1]{%
   %\global\c@page\@ne % this resets the counter
