@@ -110,6 +110,10 @@
 \cftsetindents{subsection}   {0mm} {15mm}
 \cftsetindents{subsubsection}{0mm} {15mm}
 
+% por exigência da bib@ufpr, remove indentação nas listas de figuras/tabelas/...
+\setlength{\cftfigindent}{0pt}
+\setlength{\cfttabindent}{0pt}
+
 % indentar o primeiro parágrafo (português) em 15mm
 \RequirePackage{indentfirst}
 \setlength{\parindent}{15mm}
