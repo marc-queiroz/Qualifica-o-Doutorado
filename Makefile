@@ -21,6 +21,7 @@ clean:
 	-rm -f texput.log
 	-rm -f $(MAIN).log $(MAIN).lot $(MAIN).lof
 	-rm -f $(MAIN).toc $(MAIN).bbl $(MAIN).blg
+	-rm -f $(MAIN).acr $(MAIN).smb
 
 purge: clean
 	@rm -f $(OUTPUT)

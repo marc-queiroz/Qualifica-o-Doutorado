@@ -37,12 +37,12 @@
 %------------------------------------------------------------------------------
 
 % definição da classe e versão
-\ProvidesClass{ppginf}[2018/05/22 Manuscript class for PPGInf/UFPR]
-\def\@classversion{0.9.9}
+\ProvidesClass{ppginf}[2018/05/31 Manuscript class for PPGInf/UFPR]
+\def\@classversion{0.9.10}
 
 %------------------------------------------------------------------------------
 
-% opções desta classe
+% OPÇÕES DESTA CLASSE
 
 % define flag de versão final do documento
 \newif\iffinalmode
@@ -78,7 +78,7 @@
 
 %------------------------------------------------------------------------------
 
-%% Ajustes no layout geral do texto
+%% AJUSTES DIVERSOS NO LAYOUT DO DOCUMENTO
 
 % dimensões da página e margens
 \RequirePackage{geometry}
@@ -86,15 +86,80 @@
 \geometry{right=2cm,left=2cm,top=3cm,bottom=2cm}
 \geometry{bindingoffset=1cm}
 
-% para mudar o título dos capítulos para "1. Introdução", etc
-% ATENCAO: https://tex.stackexchange.com/questions/299969/titlesec-loss-of-
-% section-numbering-with-the-new-update-2016-03-15
+% EXIGÊNCIA DA BIB@UFPR
+% ajustar formato dos títulos nas seções
+% ATENCAO: https://tex.stackexchange.com/questions/299969/titlesec-loss-of-section-numbering-with-the-new-update-2016-03-15
 \RequirePackage{titlesec}
-\titleformat{\chapter}[hang]{\huge\bfseries}{\thechapter}{1ex}{}
+\newcommand{\numberspacing}{1.5ex}		% espaço entre número e título
+\titleformat{\chapter}[hang]			% capítulos
+  {\normalfont\huge\bfseries}
+  {\thechapter} {\numberspacing} {}
+\titleformat{\section}[hang]			% seções
+  {\normalfont\Large}
+  {\thesection} {\numberspacing} {}
+\titleformat{\subsection}[hang]			% subseções
+  {\normalfont\large}
+  {\thesubsection} {\numberspacing} {}
+\titleformat{\subsubsection}[hang]		% subsubseções
+  {\normalfont\normalsize\itshape}
+  {\thesubsubsection} {\numberspacing} {}
 
-% por exigência da bib@ufpr, muda título de apêndice para "Apêndice A: blá blá
-% blá" no texto e no sumário (fonte: https://stackoverflow.com/questions/717316/
-% how-to-make-appendix-appear-in-toc-in-latex, adaptado)
+% EXIGÊNCIA DA BIB@UFPR
+% centraliza título dos capítulos não-numerados
+\RequirePackage{titletoc}
+\titleformat{name=\chapter,numberless}[hang]
+  {\normalfont\huge\bfseries}
+  {} {0ex} {\centering}
+\titlespacing{name=\chapter,numberless}{0pt}{0pt}{40pt}
+
+% EXIGÊNCIA DA BIB@UFPR
+% ajustar formato das entradas no sumário
+\RequirePackage{titletoc}
+\newcommand{\leftindent}{15mm}		% endentação das entradas
+\newcommand{\dotspacing}{0.75pc}	% espaçamento dos pontinhos
+\iffinalmode
+  \newcommand{\linespacing}{0.75ex}	% espaço vertical entre linhas
+\else
+  \newcommand{\linespacing}{0.0ex}	% espaço vertical entre linhas
+\fi
+\titlecontents{chapter} [\leftindent]
+  {\normalfont\normalsize\bfseries}
+  {\contentslabel{\leftindent}} {}
+  {\titlerule*[\dotspacing]{.}\contentspage}
+  [\vspace{\linespacing}]
+\titlecontents{section} [\leftindent]
+  {\normalfont\normalsize}
+  {\contentslabel{\leftindent}} {}
+  {\titlerule*[\dotspacing]{.}\contentspage}
+  [\vspace{\linespacing}]
+\titlecontents{subsection} [\leftindent]
+  {\normalfont\normalsize}
+  {\contentslabel{\leftindent}} {}
+  {\titlerule*[\dotspacing]{.}\contentspage}
+  [\vspace{\linespacing}]
+\titlecontents{subsubsection} [\leftindent]
+  {\normalfont\normalsize\itshape}
+  {\contentslabel{\leftindent}} {}
+  {\titlerule*[\dotspacing]{.}\contentspage}
+  [\vspace{\linespacing}]
+
+% EXIGÊNCIA DA BIB@UFPR
+% ajustar formato das entradas nas listas de figuras e tabelas
+\RequirePackage{titletoc}
+\titlecontents{figure} [\leftindent]
+  {\normalfont\normalsize}
+  {\contentslabel{\leftindent}} {}
+  {\titlerule*[\dotspacing]{.}\contentspage}
+  [\vspace{\linespacing}]
+\titlecontents{table} [\leftindent]
+  {\normalfont\normalsize}
+  {\contentslabel{\leftindent}} {}
+  {\titlerule*[\dotspacing]{.}\contentspage}
+  [\vspace{\linespacing}]
+
+% EXIGÊNCIA DA BIB@UFPR
+% mudar título de apêndice para "Apêndice A: blá blá blá" no texto e no sumário
+% https://stackoverflow.com/questions/717316/how-to-make-appendix-appear-in-toc-in-latex, adaptado
 \newcommand\appendix@chapter[1]{%
   \refstepcounter{chapter}%
   \orig@chapter*{Ap\^endice \@Alph\c@chapter: #1}%
@@ -102,24 +167,12 @@
 \let\orig@chapter\chapter
 \g@addto@macro\appendix{\let\chapter\appendix@chapter}
 
-% por exigência da bib@ufpr, remove indentações no sumário
-\RequirePackage{tocloft}
-\cftsetindents{part}         {0mm} {15mm}
-\cftsetindents{chapter}      {0mm} {15mm}
-\cftsetindents{section}      {0mm} {15mm}
-\cftsetindents{subsection}   {0mm} {15mm}
-\cftsetindents{subsubsection}{0mm} {15mm}
-
-% por exigência da bib@ufpr, remove indentação nas listas de figuras/tabelas/...
-\setlength{\cftfigindent}{0pt}
-\setlength{\cfttabindent}{0pt}
-
 % indentar o primeiro parágrafo (português) em 15mm
 \RequirePackage{indentfirst}
 \setlength{\parindent}{15mm}
 
 % indentar listas de itens alinhadas aos parágrafos
-\usepackage{enumitem}
+\RequirePackage{enumitem}
 \setlist[1]{leftmargin=\parindent}
 \setlist[2]{leftmargin=0.5\parindent}
 
@@ -144,7 +197,7 @@
 {\endlist}
 
 % aumentar o espaço entre a legenda e a tabela
-\usepackage{caption} 
+\RequirePackage{caption} 
 \captionsetup[table]{skip=10pt}
 
 % espaçamento entre linhas
@@ -164,6 +217,7 @@
 \displaywidowpenalty 10000
 \raggedbottom
 
+% EXIGÊNCIA DA BIB@UFPR
 % sumário: adiciona entrada para bibliografia e remove entradas
 % de sumário, lista de figuras e lista de tabelas.
 \RequirePackage[nottoc,notlot,notlof]{tocbibind}
@@ -186,9 +240,10 @@
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
 
-% por exigência da bib@ufpr (e contra todas as normas tipográficas), a numeração
-% da introdução deve considerar as páginas preliminares (i.e. não começa em 1).
-% Caso as regras de sua universidade sejam "normais", comente as linhas abaixo.
+% EXIGÊNCIA DA BIB@UFPR
+% a numeração da introdução deve considerar as páginas preliminares, 
+% i.e. não começa em 1). Caso as regras de sua universidade sejam "normais",
+% comente as linhas abaixo.
 \renewcommand\pagenumbering[1]{%
   %\global\c@page\@ne % this resets the counter
   \gdef\thepage{\csname @#1\endcsname\c@page}%
@@ -301,18 +356,12 @@
 % ambiente resumo
 \newenvironment{resumo}
 {
-  \clearpage
-%  \phantomsection
-%  \addcontentsline{toc}{chapter}{Resumo}
-  \begin{center}
-  {\huge\textbf{Resumo}}
-  \end{center}
-  \vspace{0.5ex}
+  \chapter*{Resumo}
 }{
   % somente mostrar palavras-chave se estiverem definidas
   \ifx\@pcs\@empty
   \else
-    \vspace{4ex}
+    \vspace{3ex}
     \noindent\textbf{Palavras-chave:} {\@pcs}.
   \fi
   \vfill
@@ -322,18 +371,12 @@
 % ambiente abstract
 \newenvironment{abstract}
 {
-  \clearpage
-%  \phantomsection
-%  \addcontentsline{toc}{chapter}{Abstract}
-  \begin{center}
-  {\huge\textbf{Abstract}}
-  \end{center}
-  \vspace{0.5ex}
+  \chapter*{Abstract}
 }{
   % somente mostrar keywords se estiverem definidas
   \ifx\@kws\@empty
   \else
-    \vspace{4ex}
+    \vspace{3ex}
     \noindent\textbf{Keywords:} {\@kws}.
   \fi
   \vfill
@@ -345,7 +388,7 @@
 
   % ambiente da ficha catalográfica
   \newenvironment{ficha}
-  {\addtocounter{page}{-1}} % não conta no número de páginas (Bib UFPR)
+  {\addtocounter{page}{-1}} % não conta no número de páginas (BIB@UFPR)
   {\cleardoublepage}
 
   % ambiente da folha de aprovação
@@ -356,10 +399,7 @@
   % ambiente de agradecimentos
   \newenvironment{agradece}
   {
-    \begin{center}
-    {\huge\textbf{Agradecimentos}}
-    \end{center}
-    \vspace{0.5ex}
+    \chapter*{Agradecimentos}
   }{
     \vfill
     \cleardoublepage
@@ -388,9 +428,9 @@
 \newenvironment{listaacron}
 {
   \chapter*{Lista de Acr\^onimos}
-%  \phantomsection
-%  \addcontentsline{toc}{chapter}{Lista de Acr\^onimos}
+  \begin{spacing}{1.25}  % a lista deve ter espaçamento 1,25
 }{
+  \end{spacing}
   \vfill
   \cleardoublepage
 }
@@ -399,9 +439,9 @@
 \newenvironment{listasimb}
 {
   \chapter*{Lista de S\'{\i}mbolos}
-%  \phantomsection
-%  \addcontentsline{toc}{chapter}{Lista de S\'{\i}mbolos}
+  \begin{spacing}{1.25}  % a lista deve ter espaçamento 1,25
 }{
+  \end{spacing}
   \vfill
   \cleardoublepage
 }
@@ -424,8 +464,6 @@
 
   % PRIMEIRA CAPA (SÓ NA VERSÃO APROVADA)
   \iffinalmode
-%    \phantomsection
-%    \thispagestyle{empty}
 
     % imagem de fundo da capa, se estiver definida em main.tex
     \ifx\@coverimg\@empty
@@ -449,7 +487,8 @@
       \end{doublespace}
     \end{center}
     \cleardoublepage
-    
+
+    % EXIGÊNCIA DA BIB@UFPR
     % reiniciar numeração de páginas, para não contar a capa;
     % segundo a bib@UFPR a capa não deve contar como página
     \setcounter{page}{1}
@@ -457,9 +496,6 @@
 
   % FOLHA DE ROSTO
   \clearpage
-%  \phantomsection
-%  \addcontentsline{toc}{chapter}{Rosto}
-%  \thispagestyle{empty}
 
   % autor
   \begin{center}

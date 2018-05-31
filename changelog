@@ -1,5 +1,14 @@
 Changelog:
 
+31/05/18
+- ajuste nos fontes usados nos títulos e sumário (bib@ufpr)
+- ajuste no alinhamento das entradas do sumário (bib@ufpr)
+- ajuste nas entradas das listas (figuras, tabelas, símbolos, etc)
+- centralizar titulos de capítulos não-numerados
+- reescrita dos ambientes resumo, abstract, agradecimentos
+- "Referências bibliográficas" -> "Referências"
+- pacote tocloft substituido por titlesec/titletoc
+
 28/03/18
 - listas de figuras/tabelas/... colocadas antes do sumário
 
