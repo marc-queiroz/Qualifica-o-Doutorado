@@ -208,8 +208,16 @@
   \onehalfspacing  % default: espaçamento 1.5
 \fi
 
-% relaxar o espaçamento entre caracteres
-\sloppy
+% relaxar o espaçamento entre caracteres; segundo o manual
+% http://texdoc.net/texmf-dist/doc/latex/l2tabu-english/l2tabuen.pdf,
+% \sloppy não deve ser usado, ao invés disso usar estes parâmetros:
+\tolerance 1414
+\hbadness 1414
+\emergencystretch 1.5em
+\hfuzz 0.3pt
+\widowpenalty=10000
+\vfuzz \hfuzz
+\raggedbottom
 
 % impedir linhas órfãs/viúvas (linhas isoladas no início/fim de uma página)
 \clubpenalty=10000
@@ -480,8 +488,10 @@
         \textsc{\Large\@author}
         \\
         \vfill
+        % testar o uso do pacote "textpos" (vide CTAN)
+        % para posicionar o título sempre no centro da página.
         \DeclareRobustCommand\\{\linebreak}
-        \textsc{\Large\@title}
+        \bfseries\MakeUppercase{\@title}\mdseries
         \vfill
         \textsc{\Large\@local\\\@date}
       \end{doublespace}
@@ -502,13 +512,16 @@
     \textsc{\Large\@author}
   \end{center}
 
-  \vfill\vfill
+  \vfill
+  \vfill
 
   % título
+  % testar o uso do pacote "textpos" (vide CTAN)
+  % para posicionar o título sempre no centro da página.
   \begin{doublespace}
     \begin{center}
       \DeclareRobustCommand\\{\linebreak }
-      \textsc{\Large\@title}
+      \bfseries\MakeUppercase{\@title}\mdseries
     \end{center}
   \end{doublespace}
 
@@ -517,12 +530,13 @@
   \else
     \begin{small}
     \begin{center}
-      (\emph{vers\~ao pr\'e-defesa, compilada em \today})
+      (\emph{vers\~ao de pr\'e-defesa, compilada em \today})
     \end{center}
     \end{small}
   \fi
 
-  \vspace{1cm}
+  % 2 linhas espaço 1.5
+  \vspace{2em}
 
   % construção do selo descritivo
   \hfill
@@ -537,6 +551,7 @@
     % área de concentração, se estiver definida em main.tex
     \ifx\@field\@empty
     \else
+      % 1 linha espaço 1.5
       \vspace{1em}
       \'Area de concentra\c{c}\~ao: \emph{\@field}.
     \fi
@@ -544,6 +559,7 @@
     % orientador, se estiver definido em main.tex
     \ifx\@advisor\@empty
     \else
+      % 1 linha espaço 1.5
       \vspace{1em}
       Orientador: \@advisor.
     \fi
@@ -551,6 +567,7 @@
     % coorientador, se estiver definido em main.tex
     \ifx\@coadvisor\@empty
     \else
+      % 1 linha espaço 1.5
       \vspace{1em}
       Coorientador: \@coadvisor.
     \fi

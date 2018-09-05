@@ -1,5 +1,9 @@
 Changelog:
 
+05/09/18
+- fonte do título nas capas em maiúsculo+negrito (Leandro Zatesko)
+- substituição de \sloppy por configurações mais precisas
+
 31/05/18
 - ajuste nos fontes usados nos títulos e sumário (bib@ufpr)
 - ajuste no alinhamento das entradas do sumário (bib@ufpr)
