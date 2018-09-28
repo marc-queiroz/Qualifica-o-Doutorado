@@ -37,8 +37,8 @@
 %------------------------------------------------------------------------------
 
 % definição da classe e versão
-\ProvidesClass{ppginf}[2018/05/31 Manuscript class for PPGInf/UFPR]
-\def\@classversion{0.9.10}
+\ProvidesClass{ppginf}[2018/09/28 Manuscript class for PPGInf/UFPR]
+\def\@classversion{0.9.11}
 
 %------------------------------------------------------------------------------
 
@@ -196,9 +196,11 @@
   \item\relax}%
 {\endlist}
 
-% aumentar o espaço entre a legenda e a tabela
+% ajustes nas legendas de tabelas e figuras
 \RequirePackage{caption} 
-\captionsetup[table]{skip=10pt}
+\captionsetup{skip=10pt}		% mais espaço entre legenda e tabela
+\captionsetup{font=footnotesize}	% fonte menor para as legendas
+\captionsetup{font+=singlespacing}	% legendas em espaço simples
 
 % espaçamento entre linhas
 \RequirePackage{setspace}
