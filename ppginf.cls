@@ -37,8 +37,8 @@
 %------------------------------------------------------------------------------
 
 % definição da classe e versão
-\ProvidesClass{ppginf}[2018/09/28 Manuscript class for PPGInf/UFPR]
-\def\@classversion{0.9.11}
+\ProvidesClass{ppginf}[2018/10/15 Manuscript class for PPGInf/UFPR]
+\def\@classversion{0.9.12}
 
 %------------------------------------------------------------------------------
 
@@ -75,6 +75,32 @@
     \LoadClass[12pt,a4paper,oneside]{book}	% oneside na defesa
   \fi
 \fi
+
+% ------------------------------------------------------------------------------
+
+% suporte a texto com múltiplas linguas
+\usepackage{babel}
+
+% nomes dos capítulos/seções/campos/etc em inglês e português
+\iflanguage{english}
+{
+  \def\@listacronyms{List of Acronyms}
+  \def\@listsymbols{List of Symbols}
+  \def\@chapthanks{Acknowledgements}
+  \def\@tagappendix{Appendix}
+  \def\@tagfield{Field}
+  \def\@tagadvisor{Advisor}
+  \def\@tagcoadvisor{Coadvisor}
+}
+{
+  \def\@listacronyms{Lista de acr\^onimos}
+  \def\@listsymbols{Lista de S\'imbolos}
+  \def\@chapthanks{Agradecimentos}
+  \def\@tagappendix{Ap\^endice}
+  \def\@tagfield{\'Area de concentra\c{c}\~ao}
+  \def\@tagadvisor{Orientador}
+  \def\@tagcoadvisor{Coorientador}
+}
 
 %------------------------------------------------------------------------------
 
@@ -162,14 +188,20 @@
 % https://stackoverflow.com/questions/717316/how-to-make-appendix-appear-in-toc-in-latex, adaptado
 \newcommand\appendix@chapter[1]{%
   \refstepcounter{chapter}%
-  \orig@chapter*{Ap\^endice \@Alph\c@chapter: #1}%
-  \addcontentsline{toc}{chapter}{Ap\^endice \@Alph\c@chapter: #1}}%
+  \orig@chapter*{\@tagappendix\ \@Alph\c@chapter: #1}%
+  \addcontentsline{toc}{chapter}{\@tagappendix\ \@Alph\c@chapter: #1}}%
 \let\orig@chapter\chapter
 \g@addto@macro\appendix{\let\chapter\appendix@chapter}
 
 % indentar o primeiro parágrafo (português) em 15mm
-\RequirePackage{indentfirst}
 \setlength{\parindent}{15mm}
+\iflanguage{brazilian}
+{
+  \RequirePackage{indentfirst}
+}
+{
+  % em inglês, espaço entre parágrafos deve aumentar um pouco
+}
 
 % indentar listas de itens alinhadas aos parágrafos
 \RequirePackage{enumitem}
@@ -367,6 +399,8 @@
 \newenvironment{resumo}
 {
   \chapter*{Resumo}
+  % texto deve ser formatado em português
+  \begin{otherlanguage}{brazilian}
 }{
   % somente mostrar palavras-chave se estiverem definidas
   \ifx\@pcs\@empty
@@ -374,6 +408,7 @@
     \vspace{3ex}
     \noindent\textbf{Palavras-chave:} {\@pcs}.
   \fi
+  \end{otherlanguage}
   \vfill
   \cleardoublepage
 }
@@ -382,6 +417,8 @@
 \newenvironment{abstract}
 {
   \chapter*{Abstract}
+  % texto deve ser formatado em inglês
+  \begin{otherlanguage}{english}
 }{
   % somente mostrar keywords se estiverem definidas
   \ifx\@kws\@empty
@@ -389,6 +426,7 @@
     \vspace{3ex}
     \noindent\textbf{Keywords:} {\@kws}.
   \fi
+  \end{otherlanguage}
   \vfill
   \cleardoublepage
 }
@@ -409,7 +447,7 @@
   % ambiente de agradecimentos
   \newenvironment{agradece}
   {
-    \chapter*{Agradecimentos}
+    \chapter*{\@chapthanks}
   }{
     \vfill
     \cleardoublepage
@@ -437,7 +475,7 @@
 % lista de acrônimos (siglas e abreviações)
 \newenvironment{listaacron}
 {
-  \chapter*{Lista de Acr\^onimos}
+  \chapter*{\@listacronyms}
   \begin{spacing}{1.25}  % a lista deve ter espaçamento 1,25
 }{
   \end{spacing}
@@ -448,7 +486,7 @@
 % lista de símbolos
 \newenvironment{listasimb}
 {
-  \chapter*{Lista de S\'{\i}mbolos}
+  \chapter*{\@listsymbols}
   \begin{spacing}{1.25}  % a lista deve ter espaçamento 1,25
 }{
   \end{spacing}
@@ -532,7 +570,12 @@
   \else
     \begin{small}
     \begin{center}
-      (\emph{vers\~ao de pr\'e-defesa, compilada em \today})
+      \iflanguage{english}
+      {
+        (\emph{pre-defense version, compiled at \today})
+      }{
+        (\emph{vers\~ao pr\'e-defesa, compilada em \today})
+      }
     \end{center}
     \end{small}
   \fi
@@ -555,7 +598,7 @@
     \else
       % 1 linha espaço 1.5
       \vspace{1em}
-      \'Area de concentra\c{c}\~ao: \emph{\@field}.
+      \@tagfield: \emph{\@field}.
     \fi
 
     % orientador, se estiver definido em main.tex
@@ -563,7 +606,7 @@
     \else
       % 1 linha espaço 1.5
       \vspace{1em}
-      Orientador: \@advisor.
+      \@tagadvisor: \@advisor.
     \fi
 
     % coorientador, se estiver definido em main.tex
@@ -571,7 +614,7 @@
     \else
       % 1 linha espaço 1.5
       \vspace{1em}
-      Coorientador: \@coadvisor.
+      \@tagcoadvisor: \@coadvisor.
     \fi
 
   \end{minipage}

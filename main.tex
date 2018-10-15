@@ -20,10 +20,15 @@
 %             uma versão impressa, para economizar papel.
 % - ... (demais opções aceitas pela classe "book")
 
-% Opções default: defesa, oneside
-\documentclass[defesa,oneside]{ppginf}	% versão para a defesa
-%\documentclass[final,oneside]{ppginf}	% versão final, só em PDF
-%\documentclass[final,twoside]{ppginf}	% versão final, em PDF + impresso
+% Sobre línguas: o modelo tem suporte para português e inglês. As duas 
+% línguas devem ser informadas como opção da classe; a língua principal
+% do documento deve vir POR ÚLTIMO.
+
+% Opções default: defesa, oneside, texto principal em português
+\documentclass[defesa,oneside,english,brazilian]{ppginf}  % p/ defesa
+%\documentclass[defesa,oneside,brazilian,english]{ppginf}  % p/ defesa, inglês
+%\documentclass[final,oneside,english,brazilian]{ppginf}  % final PDF
+%\documentclass[final,twoside,english,brazilian]{ppginf}  % final impressa
 
 % configurações de diversos pacotes, inclusive o fonte principal do texto
 \include{packages}
@@ -35,10 +40,10 @@
 % Principais dados, usados para gerar as páginas iniciais.
 % Campos não utilizados podem ser removidos ou comentados.
 
-% título :-)
+% título
 \title{Um modelo \LaTeX\ para dissertações e teses \\ (escrevi um título mais longo para ver como se comporta a quebra de linhas e o espaçamento entre elas)}
 
-% palavras-chave e keywords
+% palavras-chave e keywords (p/ resumo, abstract e metadados do PDF)
 \pchave{palavra-chave 1, palavra-chave 2, palavra-chave 3}
 \keyword{keyword 1, keyword 2, keyword 3}
 
@@ -46,20 +51,34 @@
 \author{Carlos Alberto Maziero}
 \advisor{Donald Knuth}
 \coadvisor{Leslie Lamport}
-\instit{UFPR}{Universidade Federal do Paraná}
+
+% instituição
+\iflanguage{english}
+{  \instit{UFPR}{Federal University of Paraná}    }
+{  \instit{UFPR}{Universidade Federal do Paraná}  }
 
 % área de concentração (default do PPGInf, não mudar)
-\field{Ciência da Computação}
+\iflanguage{english}
+{  \field{Computer Science}  }
+{  \field{Ciência da Computação}  }
 
-% local e data
+% data (só o ano)
 \date{2018}
-\local{Curitiba PR}
+
+% local
+\iflanguage{english}
+{  \local{Curitiba PR - Brazil}  }
+{  \local{Curitiba PR}  }
 
 % imagem de fundo da capa (se não desejar, basta comentar)
 \coverimage{0-iniciais/fundo-capa.jpg}
 
+%=====================================================
+
 %% Descrição do documento (obviamente, descomentar somente UMA!)
 
+\iflanguage{brazilian}
+{
 % tese de doutorado
 \descr{Tese apresentada como requisito parcial à obtenção do grau de Doutor em Informática, no Programa de Pós-Graduação em Informática, Setor de Ciências Exatas, da Universidade Federal do Paraná}
 
@@ -77,6 +96,26 @@
 
 % trabalho de disciplina
 %\descr{Trabalho apresentado como requisito parcial à conclusão da disciplina XYZ no Curso de Bacharelado em XYZ, Setor de Ciências Exatas, da Universidade Federal do Paraná}
+}
+{
+% doctorate thesis
+\descr{Thesis presented in partial fulfillment of the requirements for the degree of Doctor in Computer Science, in the Graduate Program in Informatics, Exact Sciences Sector, of the Federal University of Paraná, Brazil}
+
+% doctorate qualification
+%\descr{Document presented in partial fulfillment of the requirements for the doctoral qualification exam in the Graduate Program in Informatics, Exact Sciences Sector, of the Federal University of Paraná, Brazil}
+
+% MSc dissertation
+%\descr{Dissertation presented in partial fulfillment of the requirements for the degree of Master of Sciences in Informatics, in the Graduate Program in Informatics, Exact Sciences Sector, of the Federal University of Paraná, Brazil.}
+
+% MSc qualification
+%\descr{Document presented in partial fulfillment of the requirements for the Master of Sciences qualification exam in the Graduate Program in Informatics, Exact Sciences Sector, of the Federal University of Paraná, Brazil}
+
+% trabalho de conclusão de curso, inglês
+%\descr{to be translated}
+
+% trabalho de disciplina, inglês
+%\descr{to be translated}
+}
 
 %=====================================================
 
@@ -93,7 +132,7 @@
 \include{0-iniciais/dedica}		% dedicatória
 \include{0-iniciais/agradece}		% agradecimentos
 
-% resumo (português) e abstract (inglês), nesta ordem
+% resumo (português) e abstract (inglês)
 \include{0-iniciais/resumo}
 \include{0-iniciais/abstract}
 

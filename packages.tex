@@ -2,12 +2,6 @@
 
 % ------------------------------------------------------------------------------
 
-% seleção de línguas do texto (a última é a principal/default)
-\usepackage[english,brazilian]{babel}
-\selectlanguage{brazilian}
-
-% ------------------------------------------------------------------------------
-
 % Definição de fontes
 
 % formato dos arquivos-fonte (utf8 no Linux e latin1 no Windows)
@@ -64,7 +58,7 @@
 
 % formatação de algoritmos
 \usepackage{algorithm,algorithmic}
-\floatname{algorithm}{Algoritmo}
+\iflanguage{brazilian} {\floatname{algorithm}{Algoritmo}}{}
 \renewcommand{\algorithmiccomment}[1]{~~~// #1}
 %\algsetup{linenosize=\footnotesize,linenodelimiter=.}
 
@@ -84,8 +78,9 @@
 \usepackage{natbib}		% bibliografia no estilo NatBib
 
 % EXIGÊNCIA DA BIB@UFPR
-% muda o título das referências para "Referências"
+% muda o título das referências em português para "Referências"
 \addto{\captionsbrazilian}{\renewcommand{\bibname}{Refer\^encias}}
+\addto{\captionsenglish}{\renewcommand{\bibname}{References}}
 
 % ------------------------------------------------------------------------------
 
