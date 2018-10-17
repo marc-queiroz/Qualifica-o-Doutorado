@@ -14,10 +14,8 @@
 %             e omite algumas páginas iniciais (agradecimentos, etc)
 % - final   : versão pós-defesa, para enviar à biblioteca;
 %             tem espaçamento simples e todas as páginas iniciais.
-% - oneside : para impressão somente frente; use quando for gerar
-%             somente o PDF, sem impressão.
-% - twoside : para impressão frente/verso; use quando for gerar
-%             uma versão impressa, para economizar papel.
+% - oneside : somente frente; use quando for gerar somente o PDF.
+% - twoside : frente/verso; use quando for gerar uma versão impressa.
 % - ... (demais opções aceitas pela classe "book")
 
 % Sobre línguas: o modelo tem suporte para português e inglês. As duas 
@@ -53,22 +51,22 @@
 \coadvisor{Leslie Lamport}
 
 % instituição
-\iflanguage{english}
-{  \instit{UFPR}{Federal University of Paraná}    }
-{  \instit{UFPR}{Universidade Federal do Paraná}  }
+\iflanguage{brazilian}
+  { \instit{UFPR}{Universidade Federal do Paraná} }
+  { \instit{UFPR}{Federal University of Paraná}   }
 
 % área de concentração (default do PPGInf, não mudar)
-\iflanguage{english}
-{  \field{Computer Science}  }
-{  \field{Ciência da Computação}  }
+\iflanguage{brazilian}
+  { \field{Ciência da Computação} }
+  { \field{Computer Science} }
 
 % data (só o ano)
 \date{2018}
 
 % local
-\iflanguage{english}
-{  \local{Curitiba PR - Brazil}  }
-{  \local{Curitiba PR}  }
+\iflanguage{brazilian}
+  { \local{Curitiba PR} }
+  { \local{Curitiba PR - Brazil} }
 
 % imagem de fundo da capa (se não desejar, basta comentar)
 \coverimage{0-iniciais/fundo-capa.jpg}
@@ -80,16 +78,16 @@
 \iflanguage{brazilian}
 {
 % tese de doutorado
-\descr{Tese apresentada como requisito parcial à obtenção do grau de Doutor em Informática, no Programa de Pós-Graduação em Informática, Setor de Ciências Exatas, da Universidade Federal do Paraná}
+\descr{Tese apresentada como requisito parcial à obtenção do grau de Doutor em Ciência da Computação no Programa de Pós-Graduação em Informática, Setor de Ciências Exatas, da Universidade Federal do Paraná}
 
 % exame de qualificação de doutorado
-%\descr{Documento apresentado como requisito parcial ao exame de qualificação de Doutorado, no Programa de Pós-Graduação em Informática, Setor de Ciências Exatas, da Universidade Federal do Paraná}
+%\descr{Documento apresentado como requisito parcial ao exame de qualificação de Doutorado no Programa de Pós-Graduação em Informática, Setor de Ciências Exatas, da Universidade Federal do Paraná}
 
 % dissertação de mestrado
-%\descr{Dissertação apresentada como requisito parcial à obtenção do grau de Mestre em Informática, no Programa de Pós-Graduação em Informática, Setor de Ciências Exatas, da Universidade Federal do Paraná}
+%\descr{Dissertação apresentada como requisito parcial à obtenção do grau de Mestre em Informática no Programa de Pós-Graduação em Informática, Setor de Ciências Exatas, da Universidade Federal do Paraná}
 
 % exame de qualificação de mestrado
-%\descr{Documento apresentado como requisito parcial ao exame de qualificação de Mestrado, no Programa de Pós-Graduação em Informática, Setor de Ciências Exatas, da Universidade Federal do Paraná}
+%\descr{Documento apresentado como requisito parcial ao exame de qualificação de Mestrado no Programa de Pós-Graduação em Informática, Setor de Ciências Exatas, da Universidade Federal do Paraná}
 
 % trabalho de conclusão de curso
 %\descr{Trabalho apresentado como requisito parcial à conclusão do Curso de Bacharelado em XYZ, Setor de Ciências Exatas, da Universidade Federal do Paraná}
@@ -99,16 +97,16 @@
 }
 {
 % doctorate thesis
-\descr{Thesis presented in partial fulfillment of the requirements for the degree of Doctor in Computer Science, in the Graduate Program in Informatics, Exact Sciences Sector, of the Federal University of Paraná, Brazil}
+\descr{Thesis presented as a partial requirement for the degree of Doctor in Computer Science in the Graduate Program in Informatics, Exact Sciences Sector, of the Federal University of Paraná, Brazil}
 
 % doctorate qualification
-%\descr{Document presented in partial fulfillment of the requirements for the doctoral qualification exam in the Graduate Program in Informatics, Exact Sciences Sector, of the Federal University of Paraná, Brazil}
+%\descr{Document presented as a partial requirement for the doctoral qualification exam in the Graduate Program in Informatics, Exact Sciences Sector, of the Federal University of Paraná, Brazil}
 
 % MSc dissertation
-%\descr{Dissertation presented in partial fulfillment of the requirements for the degree of Master of Sciences in Informatics, in the Graduate Program in Informatics, Exact Sciences Sector, of the Federal University of Paraná, Brazil.}
+%\descr{Dissertation presented as partial a requirement for the degree of Master of Sciences in Informatics in the Graduate Program in Informatics, Exact Sciences Sector, of the Federal University of Paraná, Brazil.}
 
 % MSc qualification
-%\descr{Document presented in partial fulfillment of the requirements for the Master of Sciences qualification exam in the Graduate Program in Informatics, Exact Sciences Sector, of the Federal University of Paraná, Brazil}
+%\descr{Document presented as a partial requirement for the Master of Sciences qualification exam in the Graduate Program in Informatics, Exact Sciences Sector, of the Federal University of Paraná, Brazil}
 
 % trabalho de conclusão de curso, inglês
 %\descr{to be translated}

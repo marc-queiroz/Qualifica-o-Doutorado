@@ -38,15 +38,12 @@ Para compilar, digite "make".
 
 Pendências:
 
-- incluir \interfootnotelinepenalty=1000 para inibir a quebra de footnotes
 - automatizar a geração das lista de símbolos e abreviações
 - automatizar geração da ficha catalográfica
 - posicionar ficha catalográfica no verso da 2a capa
-- opção de inglês ou português (capa e rosto sempre em português)
 - criar capítulos com conteúdo básico de uma dissertação ou tese
 - distribuir melhor os pacotes entre ppginf.cls e packages.tex
 - analisar uso de \backmatter
 - separar apêndices de anexos?
-- unificar versões em português e inglês, como opção no main.tex
 - diferenciar tabelas de quadros?
 

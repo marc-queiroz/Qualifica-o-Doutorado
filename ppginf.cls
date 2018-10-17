@@ -82,16 +82,7 @@
 \usepackage{babel}
 
 % nomes dos capítulos/seções/campos/etc em inglês e português
-\iflanguage{english}
-{
-  \def\@listacronyms{List of Acronyms}
-  \def\@listsymbols{List of Symbols}
-  \def\@chapthanks{Acknowledgements}
-  \def\@tagappendix{Appendix}
-  \def\@tagfield{Field}
-  \def\@tagadvisor{Advisor}
-  \def\@tagcoadvisor{Coadvisor}
-}
+\iflanguage{brazilian}
 {
   \def\@listacronyms{Lista de acr\^onimos}
   \def\@listsymbols{Lista de S\'imbolos}
@@ -100,6 +91,15 @@
   \def\@tagfield{\'Area de concentra\c{c}\~ao}
   \def\@tagadvisor{Orientador}
   \def\@tagcoadvisor{Coorientador}
+}
+{
+  \def\@listacronyms{List of Acronyms}
+  \def\@listsymbols{List of Symbols}
+  \def\@chapthanks{Acknowledgements}
+  \def\@tagappendix{Appendix}
+  \def\@tagfield{Field}
+  \def\@tagadvisor{Advisor}
+  \def\@tagcoadvisor{Co-advisor}
 }
 
 %------------------------------------------------------------------------------
@@ -258,6 +258,9 @@
 \widowpenalty=10000
 \displaywidowpenalty 10000
 \raggedbottom
+
+% evitar quebra de footnotes em mais de uma página
+\interfootnotelinepenalty=1000
 
 % EXIGÊNCIA DA BIB@UFPR
 % sumário: adiciona entrada para bibliografia e remove entradas
@@ -570,11 +573,11 @@
   \else
     \begin{small}
     \begin{center}
-      \iflanguage{english}
+      \iflanguage{brazilian}
       {
-        (\emph{pre-defense version, compiled at \today})
-      }{
         (\emph{vers\~ao pr\'e-defesa, compilada em \today})
+      }{
+        (\emph{pre-defense version, compiled at \today})
       }
     \end{center}
     \end{small}
