@@ -6,7 +6,7 @@
 % códigos-fonte e a definição de tabelas.
 %
 % Produzido por Carlos Maziero (maziero@inf.ufpr.br) em Outubro de 2015.
-% Adaptado de um modelo anterior construído pelo autor para o PPGIA/PUCPR.
+% Baseado em um modelo anterior construído pelo autor para o PPGIA/PUCPR.
 
 % Opções da classe ppginf:
 %
@@ -16,17 +16,17 @@
 %             tem espaçamento simples e todas as páginas iniciais.
 % - oneside : somente frente; use quando for gerar somente o PDF.
 % - twoside : frente/verso; use quando for gerar uma versão impressa.
-% - ... (demais opções aceitas pela classe "book")
+% - ...     : demais opções aceitas pela classe "book"
 
 % Sobre línguas: o modelo tem suporte para português e inglês. As duas 
 % línguas devem ser informadas como opção da classe; a língua principal
 % do documento deve vir POR ÚLTIMO.
 
 % Opções default: defesa, oneside, texto principal em português
-\documentclass[defesa,oneside,english,brazilian]{ppginf}  % p/ defesa
-%\documentclass[defesa,oneside,brazilian,english]{ppginf}  % p/ defesa, inglês
-%\documentclass[final,oneside,english,brazilian]{ppginf}  % final PDF
-%\documentclass[final,twoside,english,brazilian]{ppginf}  % final impressa
+\documentclass[defesa,oneside,english,brazilian]{ppginf}	% defesa
+%\documentclass[defesa,oneside,brazilian,english]{ppginf}	% defesa, inglês
+%\documentclass[final,oneside,english,brazilian]{ppginf}	% final PDF
+%\documentclass[final,twoside,english,brazilian]{ppginf}	% final impressa
 
 % configurações de diversos pacotes, inclusive o fonte principal do texto
 \include{packages}
@@ -53,7 +53,7 @@
 % instituição
 \iflanguage{brazilian}
   { \instit{UFPR}{Universidade Federal do Paraná} }
-  { \instit{UFPR}{Federal University of Paraná}   }
+  { \instit{UFPR}{Federal University of Paraná} }
 
 % área de concentração (default do PPGInf, não mudar)
 \iflanguage{brazilian}
