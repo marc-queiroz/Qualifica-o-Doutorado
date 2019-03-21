@@ -36,6 +36,12 @@ Conteúdo:
 
 Para compilar, digite "make".
 
+Para atualizar seu modelo, caso já o esteja usando:
+
+  1) baixar a última versão em https://gitlab.c3sl.ufpr.br/maziero/tese
+  2) substituir os arquivos ppginf.cls e packages.tex
+  3) verificar se há diferenças entre os arquivos main.tex (o seu e o do modelo)
+
 Pendências:
 
 - automatizar a geração das lista de símbolos e abreviações
@@ -46,4 +52,5 @@ Pendências:
 - analisar uso de \backmatter
 - separar apêndices de anexos?
 - diferenciar tabelas de quadros?
+- mudar da classe book para memoir?
 

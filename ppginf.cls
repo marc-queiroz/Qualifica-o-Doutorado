@@ -37,8 +37,8 @@
 %------------------------------------------------------------------------------
 
 % definição da classe e versão
-\ProvidesClass{ppginf}[2018/10/15 Manuscript class for PPGInf/UFPR]
-\def\@classversion{0.9.12}
+\ProvidesClass{ppginf}[2019/03/21 Manuscript class for PPGInf/UFPR]
+\def\@classversion{0.9.13}
 
 %------------------------------------------------------------------------------
 
@@ -84,19 +84,19 @@
 % nomes dos capítulos/seções/campos/etc em inglês e português
 \iflanguage{brazilian}
 {
-  \def\@listacronyms{Lista de acr\^onimos}
-  \def\@listsymbols{Lista de S\'imbolos}
-  \def\@chapthanks{Agradecimentos}
-  \def\@tagappendix{Ap\^endice}
+  \def\@listacronyms{LISTA DE ACR\^ONIMOS}
+  \def\@listsymbols{LISTA DE S\'IMBOLOS}
+  \def\@chapthanks{AGRADECIMENTOS}
+  \def\@tagappendix{AP\^ENDICE}
   \def\@tagfield{\'Area de concentra\c{c}\~ao}
   \def\@tagadvisor{Orientador}
   \def\@tagcoadvisor{Coorientador}
 }
 {
-  \def\@listacronyms{List of Acronyms}
-  \def\@listsymbols{List of Symbols}
-  \def\@chapthanks{Acknowledgements}
-  \def\@tagappendix{Appendix}
+  \def\@listacronyms{LIST OF ACRONYMS}
+  \def\@listsymbols{LIST OF SYMBOLS}
+  \def\@chapthanks{ACKNOWLEDGEMENTS}
+  \def\@tagappendix{APPENDIX}
   \def\@tagfield{Field}
   \def\@tagadvisor{Advisor}
   \def\@tagcoadvisor{Co-advisor}
@@ -104,94 +104,175 @@
 
 %------------------------------------------------------------------------------
 
-%% AJUSTES DIVERSOS NO LAYOUT DO DOCUMENTO
+% ajustar dimensões da página e margens
 
-% dimensões da página e margens
 \RequirePackage{geometry}
 \geometry{a4paper}
 \geometry{right=2cm,left=2cm,top=3cm,bottom=2cm}
 \geometry{bindingoffset=1cm}
 
-% EXIGÊNCIA DA BIB@UFPR
+%------------------------------------------------------------------------------
+
 % ajustar formato dos títulos nas seções
+
 % ATENCAO: https://tex.stackexchange.com/questions/299969/titlesec-loss-of-section-numbering-with-the-new-update-2016-03-15
-\RequirePackage{titlesec}
-\newcommand{\numberspacing}{1.5ex}		% espaço entre número e título
-\titleformat{\chapter}[hang]			% capítulos
-  {\normalfont\huge\bfseries}
-  {\thechapter} {\numberspacing} {}
-\titleformat{\section}[hang]			% seções
-  {\normalfont\Large}
-  {\thesection} {\numberspacing} {}
-\titleformat{\subsection}[hang]			% subseções
-  {\normalfont\large}
-  {\thesubsection} {\numberspacing} {}
-\titleformat{\subsubsection}[hang]		% subsubseções
+\RequirePackage[explicit]{titlesec}
+
+\newcommand{\numberspacing}{1.5ex}	% espaço entre número e título
+
+% capítulo
+\titleformat{name=\chapter}[hang]
+  {\normalfont\bfseries}
+  {\thechapter \quad \MakeUppercase{#1}}
+  {\numberspacing}
+  {}
+
+% seção
+\titleformat{name=\section}[hang]
+  {\normalfont}
+  {\thesection \enskip \MakeUppercase{#1}}
+  {\numberspacing}
+  {}
+
+% subseção
+\titleformat{name=\subsection}[hang]
+  {\normalfont}
+  {\thesubsection \enskip #1}
+  {\numberspacing}
+  {}
+
+% subsubseção
+\titleformat{name=\subsubsection}[hang]
   {\normalfont\normalsize\itshape}
-  {\thesubsubsection} {\numberspacing} {}
+  {\thesubsubsection \enskip #1}
+  {\numberspacing}
+  {}
 
-% EXIGÊNCIA DA BIB@UFPR
-% centraliza título dos capítulos não-numerados
-\RequirePackage{titletoc}
+% capítulo não numerado
 \titleformat{name=\chapter,numberless}[hang]
-  {\normalfont\huge\bfseries}
-  {} {0ex} {\centering}
-\titlespacing{name=\chapter,numberless}{0pt}{0pt}{40pt}
+  {\MakeUppercase\normalfont\bfseries}
+  {#1}
+  {0ex}
+  {\centering}
 
-% EXIGÊNCIA DA BIB@UFPR
+% seção não numerada
+\titleformat{name=\section,numberless}[hang]
+  {\normalfont}
+  {\thesection \enskip \MakeUppercase{#1}}
+  {\numberspacing}
+  {}
+
+% subseção não numerada
+\titleformat{name=\subsection,numberless}[hang]
+  {\normalfont}
+  {\thesubsection \enskip #1}
+  {\numberspacing}
+  {}
+
+% subsubseção não numerada
+\titleformat{name=\subsubsection,numberless}[hang]
+  {\normalfont\normalsize\itshape}
+  {\thesubsubsection \enskip #1}
+  {\numberspacing}
+  {}
+
+% alguns espaçamentos
+\titlespacing{name=\chapter}		{0pt}{0pt}{30pt}
+\titlespacing{name=\chapter,numberless}	{0pt}{0pt}{30pt}
+
+%------------------------------------------------------------------------------
+
 % ajustar formato das entradas no sumário
+
 \RequirePackage{titletoc}
+
 \newcommand{\leftindent}{15mm}		% endentação das entradas
 \newcommand{\dotspacing}{0.75pc}	% espaçamento dos pontinhos
+
+% espaço vertical entre linhas
 \iffinalmode
-  \newcommand{\linespacing}{0.75ex}	% espaço vertical entre linhas
+  \newcommand{\linespacing}{0.75ex}
 \else
-  \newcommand{\linespacing}{0.0ex}	% espaço vertical entre linhas
+  \newcommand{\linespacing}{0.0ex}
 \fi
-\titlecontents{chapter} [\leftindent]
+
+% capítulo
+\titlecontents{chapter}
+  [\leftindent]
   {\normalfont\normalsize\bfseries}
-  {\contentslabel{\leftindent}} {}
+  {\contentslabel{\leftindent}\uppercase}
+  {}
   {\titlerule*[\dotspacing]{.}\contentspage}
   [\vspace{\linespacing}]
-\titlecontents{section} [\leftindent]
+
+% seção
+\titlecontents{section}
+  [\leftindent]
   {\normalfont\normalsize}
-  {\contentslabel{\leftindent}} {}
+  {\contentslabel{\leftindent}\uppercase}
+  {}
   {\titlerule*[\dotspacing]{.}\contentspage}
   [\vspace{\linespacing}]
-\titlecontents{subsection} [\leftindent]
+
+% subseção
+\titlecontents{subsection}
+  [\leftindent]
   {\normalfont\normalsize}
-  {\contentslabel{\leftindent}} {}
+  {\contentslabel{\leftindent}}
+  {}
   {\titlerule*[\dotspacing]{.}\contentspage}
   [\vspace{\linespacing}]
-\titlecontents{subsubsection} [\leftindent]
+
+% subsubseção
+\titlecontents{subsubsection}
+  [\leftindent]
   {\normalfont\normalsize\itshape}
-  {\contentslabel{\leftindent}} {}
+  {\contentslabel{\leftindent}}
+  {}
   {\titlerule*[\dotspacing]{.}\contentspage}
   [\vspace{\linespacing}]
 
+% incluir versões unnumbered?
+
 % EXIGÊNCIA DA BIB@UFPR
+% sumário: adiciona entrada para bibliografia e remove entradas
+% de sumário, lista de figuras e lista de tabelas.
+\RequirePackage[nottoc,notlot,notlof]{tocbibind}
+
+%------------------------------------------------------------------------------
+
 % ajustar formato das entradas nas listas de figuras e tabelas
-\RequirePackage{titletoc}
-\titlecontents{figure} [\leftindent]
+
+\titlecontents{figure}
+  [\leftindent]
   {\normalfont\normalsize}
-  {\contentslabel{\leftindent}} {}
-  {\titlerule*[\dotspacing]{.}\contentspage}
-  [\vspace{\linespacing}]
-\titlecontents{table} [\leftindent]
-  {\normalfont\normalsize}
-  {\contentslabel{\leftindent}} {}
+  {\contentslabel{\leftindent}}
+  {}
   {\titlerule*[\dotspacing]{.}\contentspage}
   [\vspace{\linespacing}]
 
-% EXIGÊNCIA DA BIB@UFPR
-% mudar título de apêndice para "Apêndice A: blá blá blá" no texto e no sumário
+\titlecontents{table}
+  [\leftindent]
+  {\normalfont\normalsize}
+  {\contentslabel{\leftindent}}
+  {}
+  {\titlerule*[\dotspacing]{.}\contentspage}
+  [\vspace{\linespacing}]
+
+%------------------------------------------------------------------------------
+
+% ajustes dos apêndices (título e sumário)
+
 % https://stackoverflow.com/questions/717316/how-to-make-appendix-appear-in-toc-in-latex, adaptado
+
 \newcommand\appendix@chapter[1]{%
   \refstepcounter{chapter}%
-  \orig@chapter*{\@tagappendix\ \@Alph\c@chapter: #1}%
-  \addcontentsline{toc}{chapter}{\@tagappendix\ \@Alph\c@chapter: #1}}%
+  \orig@chapter*{\@tagappendix\ \@Alph\c@chapter\enskip -- \enskip\MakeUppercase{#1}}%
+  \addcontentsline{toc}{chapter}{\@tagappendix\ \@Alph\c@chapter\enskip -- \enskip\uppercase{#1}}}%
 \let\orig@chapter\chapter
 \g@addto@macro\appendix{\let\chapter\appendix@chapter}
+
+%------------------------------------------------------------------------------
 
 % indentar o primeiro parágrafo (português) em 15mm
 \setlength{\parindent}{15mm}
@@ -262,11 +343,6 @@
 % evitar quebra de footnotes em mais de uma página
 \interfootnotelinepenalty=1000
 
-% EXIGÊNCIA DA BIB@UFPR
-% sumário: adiciona entrada para bibliografia e remove entradas
-% de sumário, lista de figuras e lista de tabelas.
-\RequirePackage[nottoc,notlot,notlof]{tocbibind}
-
 % usar URLs na bibliografia (precisa ficar aqui pois conflita com outros pacotes)
 \usepackage[obeyspaces,hyphens]{url}
 
@@ -303,9 +379,9 @@
 \fancypagestyle{mainmatter}{
   \fancyhf{}
   \if@twoside
-    \fancyhead[LE,RO]{\thepage}
+    \fancyhead[LE,RO]{\footnotesize\thepage}
   \else
-    \fancyhead[R]{\thepage}
+    \fancyhead[R]{\footnotesize\thepage}
   \fi
 }
 
@@ -316,9 +392,9 @@
   \fancyhf{}
   \if@mainmatter
     \if@twoside
-      \fancyhead[LE,RO]{\thepage}
+      \fancyhead[LE,RO]{\footnotesize\thepage}
     \else
-      \fancyhead[R]{\thepage}
+      \fancyhead[R]{\footnotesize\thepage}
     \fi
   \fi
 }
@@ -398,10 +474,47 @@
 
 % AMBIENTES DA PARTE INICIAL DO DOCUMENTO
 
-% ambiente resumo
+% ficha catalográfica
+\newenvironment{ficha}
+{
+  \if@twoside
+    % nada
+  \else
+    \addtocounter{page}{-1} % não conta no número de páginas (BIB@UFPR)
+  \fi
+}
+{\clearpage}
+
+% folha de aprovação
+\newenvironment{aprovacao}
+{}
+{\cleardoublepage}
+
+% agradecimentos
+\newenvironment{agradece}
+{
+  \chapter*{\MakeUppercase\@chapthanks}
+}{
+  \vfill
+  \cleardoublepage
+}
+
+% dedicatória
+\newenvironment{dedica}
+{
+  \vspace*{\fill}
+  \hfill
+  \begin{minipage}[t]{6cm}
+  \em
+}{
+  \end{minipage}
+  \cleardoublepage
+}
+
+% resumo
 \newenvironment{resumo}
 {
-  \chapter*{Resumo}
+  \chapter*{RESUMO}
   % texto deve ser formatado em português
   \begin{otherlanguage}{brazilian}
 }{
@@ -409,17 +522,17 @@
   \ifx\@pcs\@empty
   \else
     \vspace{3ex}
-    \noindent\textbf{Palavras-chave:} {\@pcs}.
+    \noindent{Palavras-chave:} {\@pcs}
   \fi
   \end{otherlanguage}
   \vfill
   \cleardoublepage
 }
 
-% ambiente abstract
+% abstract
 \newenvironment{abstract}
 {
-  \chapter*{Abstract}
+  \chapter*{ABSTRACT}
   % texto deve ser formatado em inglês
   \begin{otherlanguage}{english}
 }{
@@ -427,53 +540,48 @@
   \ifx\@kws\@empty
   \else
     \vspace{3ex}
-    \noindent\textbf{Keywords:} {\@kws}.
+    \noindent{Keywords:} {\@kws}
   \fi
   \end{otherlanguage}
   \vfill
   \cleardoublepage
 }
 
-% ambientes agradecimentos e dedicatória (só na versão aprovada)
+% alguns ambientes só aparecem na versão final
 \iffinalmode
-
-  % ambiente da ficha catalográfica
-  \newenvironment{ficha}
-  {\addtocounter{page}{-1}} % não conta no número de páginas (BIB@UFPR)
-  {\cleardoublepage}
-
-  % ambiente da folha de aprovação
-  \newenvironment{aprovacao}
-  {}
-  {\cleardoublepage}
-
-  % ambiente de agradecimentos
-  \newenvironment{agradece}
-  {
-    \chapter*{\@chapthanks}
-  }{
-    \vfill
-    \cleardoublepage
-  }
-
-  % ambiente de dedicatória
-  \newenvironment{dedica}
-  {
-    \vspace*{\fill}
-    \hfill
-    \begin{minipage}[t]{6cm}
-    \em
-  }{
-    \end{minipage}
-    \cleardoublepage
-  }
+  % nada
 \else
-  % Na versão de defesa, esses ambientes não geram nada
-  \newenvironment{ficha}     {\comment} {\endcomment}
-  \newenvironment{agradece}  {\comment} {\endcomment}
-  \newenvironment{dedica}    {\comment} {\endcomment}
-  \newenvironment{aprovacao} {\comment} {\endcomment}
+  % na versão de defesa, esses ambientes não geram nada
+  \renewenvironment{ficha}     {\comment} {\endcomment}
+  \renewenvironment{aprovacao} {\comment} {\endcomment}
+  \renewenvironment{agradece}  {\comment} {\endcomment}
+  \renewenvironment{dedica}    {\comment} {\endcomment}
 \fi
+
+%------------------------------------------------------------------------------
+
+% listas de figuras e tabelas, sumário, referências
+% ajustes feitos usando comandos do pacote Babel
+\iflanguage{brazilian}
+{
+  \addto{\captionsbrazilian}
+  {
+    \renewcommand{\listfigurename}{LISTA DE FIGURAS}
+    \renewcommand{\listtablename}{LISTA DE TABELAS}
+    \renewcommand{\contentsname}{SUM\'ARIO}
+    \renewcommand{\bibname}{REFER\^ENCIAS}
+    % outros campos em .../babel-portuges/portuges.ldf
+  }
+}
+{
+  \addto{\captionsenglish}
+  {
+    \renewcommand{\listfigurename}{LIST OF FIGURES}
+    \renewcommand{\listtablename}{LIST OF TABLES}
+    \renewcommand{\contentsname}{CONTENTS}
+    \renewcommand{\bibname}{REFERENCES}
+  }
+}
 
 % lista de acrônimos (siglas e abreviações)
 \newenvironment{listaacron}
@@ -514,6 +622,7 @@
   }
 
   % PRIMEIRA CAPA (SÓ NA VERSÃO APROVADA)
+
   \iffinalmode
 
     % imagem de fundo da capa, se estiver definida em main.tex
@@ -525,18 +634,18 @@
     % conteúdo da capa
     \begin{center}
       \begin{doublespace}
-        \textsc{\Large\@instlong}
+        \MakeUppercase{\@instlong}
         \\
-        \vspace{3cm}
-        \textsc{\Large\@author}
+        \vspace{2cm}
+        \MakeUppercase{\@author}
         \\
         \vfill
-        % testar o uso do pacote "textpos" (vide CTAN)
-        % para posicionar o título sempre no centro da página.
+        \vspace{-1cm}
         \DeclareRobustCommand\\{\linebreak}
-        \bfseries\MakeUppercase{\@title}\mdseries
+        \MakeUppercase{\@title}
         \vfill
-        \textsc{\Large\@local\\\@date}
+        \MakeUppercase{\@local} \\
+        \MakeUppercase{\@date}
       \end{doublespace}
     \end{center}
     \cleardoublepage
@@ -547,29 +656,28 @@
     \setcounter{page}{1}
   \fi
 
+%  \clearpage
+
   % FOLHA DE ROSTO
-  \clearpage
 
   % autor
   \begin{center}
-    \textsc{\Large\@author}
+    \MakeUppercase{\@author}
   \end{center}
 
   \vfill
-  \vfill
 
   % título
-  % testar o uso do pacote "textpos" (vide CTAN)
-  % para posicionar o título sempre no centro da página.
   \begin{doublespace}
     \begin{center}
       \DeclareRobustCommand\\{\linebreak }
-      \bfseries\MakeUppercase{\@title}\mdseries
+      \MakeUppercase{\@title}
     \end{center}
   \end{doublespace}
 
   % na versão de defesa, indicar data de compilação do documento
   \iffinalmode
+    % do nothing
   \else
     \begin{small}
     \begin{center}
@@ -588,7 +696,8 @@
 
   % construção do selo descritivo
   \hfill
-  \begin{minipage}{9cm}
+  \begin{minipage}{8cm}
+  \begin{footnotesize}
 
     % descrição do documento, se estiver definida em main.tex
     \ifx\@descr\@empty
@@ -620,6 +729,7 @@
       \@tagcoadvisor: \@coadvisor.
     \fi
 
+  \end{footnotesize}
   \end{minipage}
 
   \vfill
@@ -627,12 +737,15 @@
   % local e data
   \begin{center}
     \begin{doublespace}
-      \textsc{\Large\@local\\\@date}
+      \MakeUppercase{\@local} \\
+      \MakeUppercase{\@date}
     \end{doublespace}
   \end{center}
 
+  % encerra esta página; a ficha catalográfica vem a seguir, no verso
+  \clearpage
+
   % that's all, folks!
-  \cleardoublepage
 }
 
 %------------------------------------------------------------------------------
