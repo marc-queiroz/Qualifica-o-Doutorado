@@ -18,17 +18,17 @@
 % - final   : versão pós-defesa, para enviar à biblioteca;
 %             tem espaçamento simples e todas as páginas iniciais.
 % - oneside : somente frente; use quando for gerar somente o PDF.
-% - twoside : frente/verso; use quando for gerar uma versão impressa.
+% - twoside : frente/verso; use se precisar de uma versão impressa.
 % - ...     : demais opções aceitas pela classe "book"
 
-% Sobre línguas: o modelo tem suporte para português e inglês. As duas 
-% línguas devem ser informadas como opção da classe; a língua principal
-% do documento deve vir POR ÚLTIMO.
+% ATENÇÂO: este modelo tem suporte para português e inglês.
+% As duas línguas devem ser informadas como opção da classe;
+% a língua principal do documento deve vir POR ÚLTIMO.
 
 % Opções default: defesa, oneside, texto principal em português
 \documentclass[defesa,oneside,english,brazilian]{ppginf}	% defesa
 %\documentclass[defesa,oneside,brazilian,english]{ppginf}	% defesa, inglês
-%\documentclass[final,oneside,english,brazilian]{ppginf}	% final PDF
+%\documentclass[final,oneside,english,brazilian]{ppginf}	% final só PDF
 %\documentclass[final,twoside,english,brazilian]{ppginf}	% final impressa
 
 % configurações de diversos pacotes, inclusive o fonte principal do texto
@@ -106,7 +106,7 @@
 %\descr{Document presented as a partial requirement for the doctoral qualification exam in the Graduate Program in Informatics, Exact Sciences Sector, of the Federal University of Paraná, Brazil}
 
 % MSc dissertation
-%\descr{Dissertation presented as partial a requirement for the degree of Master of Sciences in Informatics in the Graduate Program in Informatics, Exact Sciences Sector, of the Federal University of Paraná, Brazil.}
+%\descr{Dissertation presented as a partial requirement for the degree of Master of Sciences in Informatics in the Graduate Program in Informatics, Exact Sciences Sector, of the Federal University of Paraná, Brazil.}
 
 % MSc qualification
 %\descr{Document presented as a partial requirement for the Master of Sciences qualification exam in the Graduate Program in Informatics, Exact Sciences Sector, of the Federal University of Paraná, Brazil}
@@ -124,7 +124,7 @@
 \frontmatter
 \pagestyle{frontmatter}
 
-% define capa e folha de rosto
+% produz capa e folha de rosto
 \titlepage
 
 % páginas que só aparecem na versão final (a inclusão é automática)
@@ -138,14 +138,12 @@
 \include{0-iniciais/abstract}
 
 % listas  de figuras, tabelas, abreviações/siglas, símbolos
-\listoffigures
+\listoffigures				% figuras
 \clearpage
-\listoftables
-\include{0-iniciais/acronimos}		% ainda deve ser preenchida à mão
-\include{0-iniciais/simbolos}		% idem
-
-% sumário
-\tableofcontents
+\listoftables				% tabelas
+\include{0-iniciais/acronimos}		% acrônimos, deve ser preenchida à mão
+\include{0-iniciais/simbolos}		% símbolos, idem
+\tableofcontents			% sumário
 
 %=====================================================
 
@@ -179,7 +177,7 @@
 
 % base de bibliografia (BibTeX)
 \bibliography{referencias}
-%\bibliography{file1, file2, file3} % se tiver mais de um arquivo BibTeX
+%\bibliography{file1,file2,file3} % se tiver mais de um arquivo BibTeX
 
 %=====================================================
 

@@ -1,6 +1,10 @@
 Changelog:
 
-20/03/2019
+25/03/19
+- corrigido erro no formato dos títulos de capítulos, seções, etc
+- numera subsubseções
+
+20/03/19
 - várias mudanças para atender a biblioteca da UFPR
 
 15/10/18

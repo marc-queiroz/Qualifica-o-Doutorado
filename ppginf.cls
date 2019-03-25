@@ -37,8 +37,8 @@
 %------------------------------------------------------------------------------
 
 % definição da classe e versão
-\ProvidesClass{ppginf}[2019/03/21 Manuscript class for PPGInf/UFPR]
-\def\@classversion{0.9.13}
+\ProvidesClass{ppginf}[2019/03/25 Manuscript class for PPGInf/UFPR]
+\def\@classversion{0.9.14}
 
 %------------------------------------------------------------------------------
 
@@ -121,64 +121,67 @@
 \newcommand{\numberspacing}{1.5ex}	% espaço entre número e título
 
 % capítulo
-\titleformat{name=\chapter}[hang]
+\titleformat{\chapter}[hang]
   {\normalfont\bfseries}
-  {\thechapter \quad \MakeUppercase{#1}}
+  {\thechapter}
   {\numberspacing}
-  {}
+  {\MakeUppercase{#1}}
 
 % seção
 \titleformat{name=\section}[hang]
   {\normalfont}
-  {\thesection \enskip \MakeUppercase{#1}}
+  {\thesection}
   {\numberspacing}
-  {}
+  {\MakeUppercase{#1}}
 
 % subseção
 \titleformat{name=\subsection}[hang]
   {\normalfont}
-  {\thesubsection \enskip #1}
+  {\thesubsection}
   {\numberspacing}
-  {}
+  {#1}
 
 % subsubseção
 \titleformat{name=\subsubsection}[hang]
   {\normalfont\normalsize\itshape}
-  {\thesubsubsection \enskip #1}
+  {\thesubsubsection}
   {\numberspacing}
-  {}
+  {#1}
 
 % capítulo não numerado
 \titleformat{name=\chapter,numberless}[hang]
   {\MakeUppercase\normalfont\bfseries}
-  {#1}
+  {}
   {0ex}
-  {\centering}
+  {\centering #1}
 
 % seção não numerada
 \titleformat{name=\section,numberless}[hang]
   {\normalfont}
-  {\thesection \enskip \MakeUppercase{#1}}
+  {\thesection}
   {\numberspacing}
-  {}
+  {\MakeUppercase{#1}}
 
 % subseção não numerada
 \titleformat{name=\subsection,numberless}[hang]
   {\normalfont}
-  {\thesubsection \enskip #1}
+  {\thesubsection}
   {\numberspacing}
-  {}
+  {#1}
 
 % subsubseção não numerada
 \titleformat{name=\subsubsection,numberless}[hang]
   {\normalfont\normalsize\itshape}
-  {\thesubsubsection \enskip #1}
+  {\thesubsubsection}
   {\numberspacing}
-  {}
+  {#1}
 
 % alguns espaçamentos
 \titlespacing{name=\chapter}		{0pt}{0pt}{30pt}
 \titlespacing{name=\chapter,numberless}	{0pt}{0pt}{30pt}
+
+% permite subsubsections
+\setcounter{secnumdepth}{3}
 
 %------------------------------------------------------------------------------
 
