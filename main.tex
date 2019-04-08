@@ -1,4 +1,4 @@
-% Versão 0.9.13, 21/03/2019
+% Versão 0.9.14, 25/03/2019
 
 % Este documento destina-se a servir como modelo para a produção de documentos
 % de pesquisa do PPGINF/UFPR, como projetos, dissertações e teses. A classe de
@@ -25,11 +25,17 @@
 % As duas línguas devem ser informadas como opção da classe;
 % a língua principal do documento deve vir POR ÚLTIMO.
 
-% Opções default: defesa, oneside, texto principal em português
-\documentclass[defesa,oneside,english,brazilian]{ppginf}	% defesa
-%\documentclass[defesa,oneside,brazilian,english]{ppginf}	% defesa, inglês
-%\documentclass[final,oneside,english,brazilian]{ppginf}	% final só PDF
-%\documentclass[final,twoside,english,brazilian]{ppginf}	% final impressa
+% Opções default: defesa, oneside, texto em português
+\documentclass[defesa,oneside,english,brazilian]{ppginf}
+
+% Versão de defesa em inglês
+%\documentclass[defesa,oneside,brazilian,english]{ppginf}
+
+% Versão final em PDF para a biblioteca da UFPR
+%\documentclass[final,oneside,english,brazilian]{ppginf}
+
+% Versão final para impressão frente/verso
+%\documentclass[final,twoside,english,brazilian]{ppginf}
 
 % configurações de diversos pacotes, inclusive o fonte principal do texto
 \include{packages}
@@ -77,7 +83,8 @@
 %=====================================================
 
 %% Descrição do documento (obviamente, descomentar somente UMA!)
-% Por exiência da biblioteca da UFPR, a descrição do documento deve ser
+
+% Por exigência da biblioteca da UFPR, a descrição do documento deve ser
 % em português, mesmo em documentos em outras línguas. Vá entender...
 
 % tese de doutorado

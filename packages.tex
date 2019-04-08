@@ -10,7 +10,7 @@
 % usar codificação T1 para ter caracteres acentuados corretos no PDF
 \usepackage[T1]{fontenc}
 
-% fonte usada no corpo do texto (descomente apenas uma)
+% fonte usada no corpo do texto (pode alterar, mas descomente apenas uma)
 \usepackage{newtxtext,newtxmath}	% Times (se não tiver, use mathptmx)
 %\usepackage{lmodern}			% Computer Modern (fonte clássico LaTeX)
 %\usepackage{kpfonts}			% Kepler/Palatino (idem, use mathpazo)
@@ -64,22 +64,19 @@
 
 % ------------------------------------------------------------------------------
 
-% listas de símbolos e de abreviações (a fazer)
-%\usepackage[titles]{tocloft}
-%\newlistof[part]{symb}{los}{Lista de Símbolos}
-%\newlistof[part]{abbrev}{loa}{Lista de Abreviações}
-%\newcommand{\symb}[2]{%
-%\refstepcounter{symb}
-%\addcontentsline{los}{symb}{\protect #1 :#2}\par}
-
-% ------------------------------------------------------------------------------
-
 % formatação de bibliografia
 \usepackage{natbib}		% bibliografia no estilo NatBib
 
 % ------------------------------------------------------------------------------
 
-% outros pacotes diversos
+% fontes adicionais
+\usepackage{amsmath}		% pacotes matemáticos
+\usepackage{amsfonts}		% fontes matemáticas 
+\usepackage{amssymb}		% símbolos 
+
+% ------------------------------------------------------------------------------
+
+% pacotes diversos
 \usepackage{alltt,moreverb}	% mais comandos no modo verbatim
 \usepackage{lipsum}		% gera texto aleatório (para os exemplos)
 \usepackage{currfile}		% infos sobre o arquivo/diretório atual
