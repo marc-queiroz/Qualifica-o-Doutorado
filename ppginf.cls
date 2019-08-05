@@ -80,9 +80,10 @@
 
 % suporte a texto com múltiplas linguas
 \usepackage{babel}
+\usepackage{iflang}
 
 % nomes dos capítulos/seções/campos/etc em inglês e português
-\iflanguage{brazilian}
+\IfLanguageName{brazilian}
 {
   \def\@listacronyms{LISTA DE ACR\^ONIMOS}
   \def\@listsymbols{LISTA DE S\'IMBOLOS}
@@ -176,9 +177,9 @@
   {\numberspacing}
   {#1}
 
-% alguns espaçamentos
-\titlespacing{name=\chapter}		{0pt}{0pt}{30pt}
-\titlespacing{name=\chapter,numberless}	{0pt}{0pt}{30pt}
+% ajusta alguns espaçamentos
+\titlespacing*{name=\chapter}			{0pt}{0pt}{30pt}
+\titlespacing*{name=\chapter,numberless}	{0pt}{0pt}{30pt}
 
 % permite subsubsections
 \setcounter{secnumdepth}{3}
@@ -279,7 +280,7 @@
 
 % indentar o primeiro parágrafo (português) em 15mm
 \setlength{\parindent}{15mm}
-\iflanguage{brazilian}
+\IfLanguageName{brazilian}
 {
   \RequirePackage{indentfirst}
 }
@@ -565,7 +566,7 @@
 
 % listas de figuras e tabelas, sumário, referências
 % ajustes feitos usando comandos do pacote Babel
-\iflanguage{brazilian}
+\IfLanguageName{brazilian}
 {
   \addto{\captionsbrazilian}
   {
@@ -684,7 +685,7 @@
   \else
     \begin{small}
     \begin{center}
-      \iflanguage{brazilian}
+      \IfLanguageName{brazilian}
       {
         (\emph{vers\~ao pr\'e-defesa, compilada em \today})
       }{
