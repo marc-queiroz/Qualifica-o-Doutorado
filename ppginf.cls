@@ -37,21 +37,26 @@
 %------------------------------------------------------------------------------
 
 % definição da classe e versão
-\ProvidesClass{ppginf}[2019/03/25 Manuscript class for PPGInf/UFPR]
-\def\@classversion{0.9.14}
+\ProvidesClass{ppginf}[2020/03/30 Manuscript class for PPGInf/UFPR]
+\def\@classversion{0.9.15}
 
 %------------------------------------------------------------------------------
 
 % OPÇÕES DESTA CLASSE
 
-% define flag de versão final do documento
-\newif\iffinalmode
+% flags de controle
+\newif\iffinalmode	% flag de versão final do documento
+\newif\ifmetadata	% gera metadados no PDF? default false
+\metadatafalse
 
 % defesa: só frente, espaçamento 1,5 e menos páginas iniciais
 \DeclareOption{defesa}{\finalmodefalse}
 
 % aprovada: frente/verso, espaçamento 1 e mais páginas iniciais
 \DeclareOption{final}{\finalmodetrue}
+
+% metadados: inclui metadados no PDF
+\DeclareOption{metadados}{\metadatatrue}
 
 % demais opções devem ser encaminhadas à classe de base (book)
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{book}}
@@ -616,14 +621,26 @@
 \renewcommand{\titlepage}
 {
   % ajustar tags do PDF final (só funciona bem se estiver aqui)
-  \hypersetup{
-    pdftitle    = {\@title},
-    pdfauthor   = {\@author},
-    pdfsubject  = {\@field},
-    pdfproducer = {\@instshort\ - \@instlong},
-    pdfcreator  = {LaTeX, using PPGInf class V. \@classversion},
-    pdfkeywords = {\@pcs, \@kws}
-  }
+  \ifmetadata
+    \hypersetup{
+      pdftitle    = {\@title},
+      pdfauthor   = {\@author},
+      pdfsubject  = {\@field},
+      pdfproducer = {\@instshort\ - \@instlong},
+      pdfcreator  = {LaTeX, using PPGInf class V. \@classversion},
+      pdfkeywords = {\@pcs, \@kws}
+    }
+  \else
+    \hypersetup{
+      pdftitle    = {},
+      pdfauthor   = {},
+      pdfsubject  = {},
+      pdfproducer = {},
+      pdfcreator  = {},
+      pdfkeywords = {}
+    }
+    \pdfinfoomitdate 1
+  \fi
 
   % PRIMEIRA CAPA (SÓ NA VERSÃO APROVADA)
 

@@ -1,5 +1,13 @@
 Changelog:
 
+30/03/20
+- opção "metadados" para incluir metadados (título, author, etc) no PDF;
+  por default não os inclui, pois a Bib/UFPR parece não gostar deles...
+
+05/08/19
+- bugfix: trocado \iflanguage por \IfLanguageName
+- ajustes na bibliografia
+
 25/03/19
 - corrigido erro no formato dos títulos de capítulos, seções, etc
 - numera subsubseções
