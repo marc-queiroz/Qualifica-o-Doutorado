@@ -121,7 +121,6 @@
 
 % ajustar formato dos títulos nas seções
 
-% ATENCAO: https://tex.stackexchange.com/questions/299969/titlesec-loss-of-section-numbering-with-the-new-update-2016-03-15
 \RequirePackage[explicit]{titlesec}
 
 \newcommand{\numberspacing}{1.5ex}	% espaço entre número e título

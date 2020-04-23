@@ -1,5 +1,9 @@
 Changelog:
 
+23/04/20
+- removido arquivo titlesec.sty, que tinha sido adicionado para corrigir
+  um bug na versão do pacote titlesec distribuída em 03/2016.
+
 30/03/20
 - opção "metadados" para incluir metadados (título, author, etc) no PDF;
   por default não os inclui, pois a Bib/UFPR parece não gostar deles...
