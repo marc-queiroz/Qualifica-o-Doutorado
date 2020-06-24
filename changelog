@@ -1,5 +1,10 @@
 Changelog:
 
+26/06/20
+- ajustadas as duas primeiras páginas da versão em inglês, para cumprir
+  mais exigências da Bib/UFPR.
+- número de versão do modelo é simplesmente a data de último ajuste
+
 23/04/20
 - removido arquivo titlesec.sty, que tinha sido adicionado para corrigir
   um bug na versão do pacote titlesec distribuída em 03/2016.

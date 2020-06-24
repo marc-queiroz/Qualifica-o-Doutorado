@@ -37,16 +37,17 @@
 %------------------------------------------------------------------------------
 
 % definição da classe e versão
-\ProvidesClass{ppginf}[2020/03/30 Manuscript class for PPGInf/UFPR]
-\def\@classversion{0.9.15}
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesClass{ppginf}[2020/06/24 Manuscript LaTeX class for PPGInf/UFPR]
 
 %------------------------------------------------------------------------------
 
 % OPÇÕES DESTA CLASSE
 
 % flags de controle
-\newif\iffinalmode	% flag de versão final do documento
-\newif\ifmetadata	% gera metadados no PDF? default false
+\newif\iffinalmode	% versão final do documento? default false
+\finalmodefalse
+\newif\ifmetadata	% incluir metadados no PDF? default false
 \metadatafalse
 
 % defesa: só frente, espaçamento 1,5 e menos páginas iniciais
@@ -87,7 +88,7 @@
 \usepackage{babel}
 \usepackage{iflang}
 
-% nomes dos capítulos/seções/campos/etc em inglês e português
+% nomes dos capítulos/seções/campos/etc em português e inglês
 \IfLanguageName{brazilian}
 {
   \def\@listacronyms{LISTA DE ACR\^ONIMOS}
@@ -103,9 +104,13 @@
   \def\@listsymbols{LIST OF SYMBOLS}
   \def\@chapthanks{ACKNOWLEDGEMENTS}
   \def\@tagappendix{APPENDIX}
-  \def\@tagfield{Field}
-  \def\@tagadvisor{Advisor}
-  \def\@tagcoadvisor{Co-advisor}
+% a Bib/UFPR exige que tudo seja em português, exceto o título :-(
+%  \def\@tagfield{Field}
+%  \def\@tagadvisor{Advisor}
+%  \def\@tagcoadvisor{Co-advisor}
+  \def\@tagfield{\'Area de concentra\c{c}\~ao}
+  \def\@tagadvisor{Orientador}
+  \def\@tagcoadvisor{Coorientador}
 }
 
 %------------------------------------------------------------------------------
@@ -626,7 +631,7 @@
       pdfauthor   = {\@author},
       pdfsubject  = {\@field},
       pdfproducer = {\@instshort\ - \@instlong},
-      pdfcreator  = {LaTeX, using PPGInf class V. \@classversion},
+      pdfcreator  = {LaTeX, using PPGInf/UFPR class},
       pdfkeywords = {\@pcs, \@kws}
     }
   \else

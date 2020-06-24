@@ -1,4 +1,4 @@
-% Versão 0.9.15, 30/03/2020
+% Versão 24/06/2020
 
 % Este documento destina-se a servir como modelo para a produção de documentos
 % de pesquisa do PPGINF/UFPR, como projetos, dissertações e teses. A classe de
@@ -38,7 +38,7 @@
 % Versão final para impressão (frente/verso)
 %\documentclass[final,twoside,english,brazilian]{ppginf}
 
-% configurações de diversos pacotes, inclusive o fonte principal do texto
+% configurações de diversos pacotes, inclusive a fonte usada no texto
 \include{packages}
 
 %=====================================================
@@ -63,12 +63,16 @@
 % instituição
 \IfLanguageName{brazilian}
   { \instit{UFPR}{Universidade Federal do Paraná} }
-  { \instit{UFPR}{Federal University of Paraná} }
+% a Bib/UFPR exige que tudo seja em português, exceto o título :-(
+%  { \instit{UFPR}{Federal University of Paraná} }
+  { \instit{UFPR}{Universidade Federal do Paraná} }
 
 % área de concentração (default do PPGInf, não mudar)
 \IfLanguageName{brazilian}
   { \field{Ciência da Computação} }
-  { \field{Computer Science} }
+% a Bib/UFPR exige que tudo seja em português, exceto o título :-(
+%  { \field{Computer Science} }
+  { \field{Ciência da Computação} }
 
 % data (só o ano)
 \date{2018}
@@ -76,7 +80,9 @@
 % local
 \IfLanguageName{brazilian}
   { \local{Curitiba PR} }
-  { \local{Curitiba PR - Brazil} }
+% a Bib/UFPR exige que tudo seja em português, exceto o título :-(
+%  { \local{Curitiba PR - Brazil} }
+  { \local{Curitiba PR} }
 
 % imagem de fundo da capa (se não desejar, basta comentar)
 \coverimage{0-iniciais/fundo-capa.jpg}
