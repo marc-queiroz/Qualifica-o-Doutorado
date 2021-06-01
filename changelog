@@ -1,5 +1,10 @@
 Changelog:
 
+01/06/21
+- carrega o estilo apalike-ptbr nos textos em português e apalike nos
+  textos em inglês
+- inclusão do pacote amssymb comentada (conflito com outro pacote)
+
 26/06/20
 - ajustadas as duas primeiras páginas da versão em inglês, para cumprir
   mais exigências da Bib/UFPR.
@@ -11,7 +16,7 @@ Changelog:
 
 30/03/20
 - opção "metadados" para incluir metadados (título, author, etc) no PDF;
-  por default não os inclui, pois a Bib/UFPR parece não gostar deles...
+  por default não os inclui, pois a Bib/UFPR não gosta deles...
 
 05/08/19
 - bugfix: trocado \iflanguage por \IfLanguageName
@@ -20,7 +25,7 @@ Changelog:
 25/03/19
 - corrigido erro no formato dos títulos de capítulos, seções, etc
 - numera subsubseções
-- descrição na folha de rosto sempre em português
+- descrição na folha de rosto sempre em português (Bib/UFPR exigiu)
 
 20/03/19
 - várias mudanças para atender a biblioteca da UFPR

@@ -65,7 +65,23 @@
 % ------------------------------------------------------------------------------
 
 % formatação de bibliografia
-\usepackage{natbib}		% bibliografia no estilo NatBib
+\usepackage{natbib}			% bibliografia no estilo NatBib
+\IfLanguageName{brazilian}
+{\bibliographystyle{apalike-ptbr}}	% formato em português
+{\bibliographystyle{apalike}}		% formato em inglês
+
+% Estilos de bibliografia recomendados (só descomentar um estilo!)
+% Mais infos: https://pt.sharelatex.com/learn/Bibtex_bibliography_styles
+%
+%\bibliographystyle{apalike-ptbr}	% [Maziero et al., 2006]
+%\bibliographystyle{alpha}		% [Maz06]
+%\bibliographystyle{plainnat}		% vide Google "LaTeX Natbib"
+%\bibliographystyle{plain}		% [1] ordem alfabética
+%\bibliographystyle{unsrt}		% [1] ordem de uso no texto
+
+% no estilo "unsrt", evita que citações nos índices sejam consideradas
+%\usepackage{notoccite}
+
 \renewcommand{\cite}{\citep}	% \cite deve funcionar como \citep
 %\bibpunct{[}{]}{;}{a}{}{,}	% caracteres usados nas referências
 
@@ -74,7 +90,7 @@
 % fontes adicionais
 \usepackage{amsmath}		% pacotes matemáticos
 \usepackage{amsfonts}		% fontes matemáticas 
-\usepackage{amssymb}		% símbolos 
+%\usepackage{amssymb}		% símbolos 
 
 % ------------------------------------------------------------------------------
 

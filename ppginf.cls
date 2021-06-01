@@ -38,7 +38,7 @@
 
 % definição da classe e versão
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{ppginf}[2020/06/24 Manuscript LaTeX class for PPGInf/UFPR]
+\ProvidesClass{ppginf}[2021/06/01 Manuscript LaTeX class for PPGInf/UFPR]
 
 %------------------------------------------------------------------------------
 
@@ -104,7 +104,7 @@
   \def\@listsymbols{LIST OF SYMBOLS}
   \def\@chapthanks{ACKNOWLEDGEMENTS}
   \def\@tagappendix{APPENDIX}
-% a Bib/UFPR exige que tudo seja em português, exceto o título :-(
+% a Bib/UFPR exige que a folha de rosto seja em português, exceto o título :-(
 %  \def\@tagfield{Field}
 %  \def\@tagadvisor{Advisor}
 %  \def\@tagcoadvisor{Co-advisor}

@@ -26,14 +26,15 @@
 % As duas línguas devem ser informadas como opção da classe;
 % a língua principal do documento deve vir POR ÚLTIMO.
 
-% Versão de defesa
+% Versão de defesa em português
 \documentclass[defesa,oneside,english,brazilian]{ppginf}
 
 % Versão de defesa em inglês
 %\documentclass[defesa,oneside,brazilian,english]{ppginf}
 
-% Versão final em PDF para a biblioteca da UFPR
+% Versão final em PDF para a biblioteca da UFPR (português e inglês)
 %\documentclass[final,oneside,english,brazilian]{ppginf}
+%\documentclass[final,oneside,brazilian,english]{ppginf}
 
 % Versão final para impressão (frente/verso)
 %\documentclass[final,twoside,english,brazilian]{ppginf}
@@ -167,19 +168,9 @@
 
 %=====================================================
 
-% Estilos de bibliografia recomendados (só descomentar um estilo!)
-% Mais infos: https://pt.sharelatex.com/learn/Bibtex_bibliography_styles
-%
-% ATENÇÃO: evite usar \cite{}; prefira \citep{} e \citet{}
-%
-\bibliographystyle{apalike-ptbr}	% [Maziero et al., 2006]
-%\bibliographystyle{alpha}		% [Maz06]
-%\bibliographystyle{plainnat}		% vide Google "LaTeX Natbib"
-%\bibliographystyle{plain}		% [1] ordem alfabética
-%\bibliographystyle{unsrt}		% [1] ordem de uso no texto
+% o estilo de bibliografia é definido no arquivo packages.tex
 
-% no estilo "unsrt", evita que citações nos índices sejam consideradas
-%\usepackage{notoccite}
+% ATENÇÃO: evite usar \cite{}; prefira \citep{} e \citet{}
 
 % base de bibliografia (BibTeX)
 \bibliography{referencias}
