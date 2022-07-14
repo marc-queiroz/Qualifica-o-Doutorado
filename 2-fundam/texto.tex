@@ -1,3 +1,83 @@
+\chapter{Fundamentação teórica}
+\label{cap:fundamentacao}
+
+% Mind Map para Fundamentação: https://bit.ly/3P5rG3q
+
+% Durante o estudo bibliográfico, foram lidos diversos artigos sobre a privacidade vs BC. O trabalho é organizar os artigos, criando um texto que convença o leitor de que eles são interligados e mostram cada ponto necessário para a resolução do problema, o objetivo e a justificativa vão ser incluídos posteriormente.
+
+% Lembrar de mencionar que DLT e BC são intercambiáveis. Adicionar as siglas na seção de acronismos.
+
+% Contextualização: Qual o papel da privacidade na sociedade moderna? Como atingir a privacidade em ambientes abertos e inseguros? Uma discussão sobre a influência da GDPR no Blockchain.
+
+Privacidade e proteção de dados são duas questões inter-relacionadas de governança da Internet. A proteção de dados é um mecanismo legal que garante a privacidade. A privacidade é geralmente definida como o direito de qualquer cidadão de controlar suas próprias informações pessoais e decidir sobre elas (divulgar informações ou não). A privacidade é um direito humano fundamental. É reconhecido na Declaração Universal dos Direitos Humanos, no Pacto Internacional sobre Direitos Civis e Políticos e em muitas outras convenções internacionais e regionais de direitos humanos \cite{PrivacyA6:online}. 
+
+A diferença entre privacidade e proteção de dados, segundo Guamán \cite{Privacyv4:online}, depende do país e das idiossincrasias da língua falada. Nos Estados Unidos da América (United States of America - USA), o termo privacidade domina as regras e práticas de processamento de dados pessoais, na União Européia (European Union - EU) o termo proteção de dados parece ser utilizado para se referir a mesma definição. Para evitar problemas de linguagem e suas diferenças, a EU utiliza o termo proteção de dados ao invés de privacidade para se referir a proteção da privacidade proteção do direito de privacidade no que diz respeito ao tratamento de dados pessoais.
+
+Na segurança de dados os termos dados pessoais, informações pessoais ou Informações de Identificação Pessoal (Personally Identifiable Information - PII) são usados para descrever informações que podem ser usadas para identificar, contactar e localizar uma pessoa \cite{Personal37:online}. Dentro do tema privacidade, esta tese preocupa-se na privacidade dos dados pessoais, proteção dos dados, por isso os termos privacidade, proteção de dados e PII são intercambiáveis.
+
+% No trabalho de Schwerin2018 menciona-se que PII e privacidade são termos intercambiáveis. Estou procurando uma forma de adicionar essa idéia na tese.
+
+Segundo Schwerin \cite{Schwerin2018} a definição de PII muda com o desenvolvimento de tecnologias como blockchain, IA, Big Data e Internet das coisas (Internet of Things - IoT), pois aumentam a chance de reidentificar os dados. %apud 16.
+Quase todos os dispositivos digitais usados por humanos e conectados à internet podem ser usados para rastrear sua origem. %(apud [17]).
+Como esse tipo de dado está frequentemente ligado à identidade de um ser humano, ele deve ser protegido da mesma forma que outros direitos que esse indivíduo possui.
+
+\textit{Parágrafo rascunho:} A legislação de proteção de dados ... O esforço inicial para proteção dos dados pessoais nasceu em XXX, onde a GDPR tornou-se popular por elevar ao patamar de lei a um grande número de habitantes, bloco europeu. Incentivando outros países a criar regras para proteção de dados e punições para vazamento de dados. Destinações e permissões de uso dos dados.
+
+\textit{Parágrafo rascunho:} 
+O Big data parece ter sido o motivador de tais ações de proteção de dados. A forma como empresas tem usado os dados de seus usuários, por centralizar essas informações em seus servidores. Sem fiscalização. Aprendizado de máquina sem o consentimento explicito do usuário. 
+
+% Não esquecer de mencionar a parte de segurança da DLT.
+\textit{Parágrafo rascunho:} 
+Em contrapartida contra a centralização do dados, temos o BC \cite{Nakamoto2009}, que inicialmente foi uma tecnologia utilizada para gerar transparência no Bitcoin. Logo encontrou outros usos, permitindo que a confiança seja distribuída, retornando o controle da identidade ao próprio usuário. Mesmo assim a DLT encontra problemas próprios, como a identificação de um usuário. Trabalhos como XXX, XXX, XXX e XXXX falam dos problemas e soluções para o uso da DLT na era da GDPR e afins.
+
+% Podemos falar da privacidade na DLT.
+
+% Tecnologias AI, Big Data, IoT e BC. Grandes empresas centralizadora de PII Google, Facebook. Devido aos problemas de segurança e mal uso de dados, mostrar fontes. Estarão os usuário dispostos a continuar confiando no governo e nas empresas fornecedoras de serviços, seus dados para serem executados  Para trazer a confiança ao mundo
+
+% BC é uma tecnologia que chegou para ficar, dados escritos são imutáveis e a prova de fraudes. Mas é um risco ao PII/Privacidade do usuário, que pode ser utilizado de maneira "evil" (ver nos artigos, existe uma forma melhor de referir-se ao abuso de dados, normalmente praticado por empresas) por indivíduos ou empresas.
+
+Direito a privacidade na Blockchain. Como proteger os dados pessoais tem se tornado um tema cada vez mais importante \cite{Schwerin2018}. Uma preocupação crescente com o uso feito dos dados por grandes corporações. \cite{dsguaman[6]Privacy vs Data protection vs Information Security}. Se o BC (Blockchain) precisa estar em compliance com a GDPR, pergunta: é possível? Se sim, o que precisa ser feito?
+
+
+No ecossistema da BC \cite{Schwerin2018} menciona sobre a evolução e mudança de paradigma que irá influenciar cada fragmento do mundo que conhecemos, apud [10].
+
+Estratégias para proteger a privacidade. Segundo Hassan em seu artigo \cite{Hassan2020} a encriptação é uma das maneiras tradicionais de proteger a privacidade usada pela maioria dos sistemas para proteger os dados contra adversários e usuários não autorizados. Outra técnica é a anonimização de dados, que apud [23] \cite{Hassan2020} mostra que pode ser facilmente comprometidos. \cite{Dwork2006} propõe um trabalho que ao perturbar os dados, utilizando um processo de randomização, chamado Randomized Response proposto por S. L. Warner em 1965, a privacidade é alcançada através da negação plausível para qualquer entrada.
+
+Esse processo tem sido utilizado em sistemas onde não se conhece a capacidade de processamento do hardware.
+
+% Falar da GDPR. Contar um pouco da história. Verificar os artigos de referência se algum deles tem essa informação. Acho que o Schwerin2018 tem alguma informação relevante. Abaixo é uma explicação do site da UE.
+
+A GDPR (General Data Protection Regulation) legisla como dados pessoais precisam ser coletados, processados e apagados. Entre os direitos que se destacam na lei, encontra-se o direito ao esquecimento \cite{Everythi34:online}.
+
+De acordo com Al-Zaben \cite{Al-ZabenNasr2018:article}, um número significativo de usuários fazem uso de redes sociais, fornecendo uma grande quantidade de PII para sites e aplicativos de redes sociais. Ainda afirma que o BC ganhou muita atenção de vários pesquisadores(incluir apuds? [7] [8]). Com a inclusão da GDPR os dados individuais precisam ser protegidos, ficando as instituições obrigadas a recolher o consentimento individual de cada usuário para coletar e compartilhar seus dados. Ainda é necessário a empresa garantir que seus dados possam ser removidos de sua base, conhecido como ``direito ao esquecimento"". Propõe-se a criação de um BC capaz de gerenciar PII utilizando organizações. Separando a persistência de PII de outros dados.
+
+Feng, no survey \cite{Feng2019} sobre proteção da privacidade no BC. Afirma que o BC é uma tecnologia disruptiva que funciona de maneira descentralizada. Sendo a tecnologia base para moedas digitais, como Bitcoin, operando de maneira distribuída sem o uso de uma entidade central.
+
+% Feng menciona o uso da tecnologia BC em IoT, por ser equipada com uma topologia descentralizada. O gerenciamento de equipamentos pode ser automatizado e a sincronização de dados pode ser fácil e rápida entre dispositivos IoT (Hud et al, 2017; Dorri et al. 2016; Conoscenti et al., 2016). Além disso o BC melhora a transparência e rastreabilidade de propriedade "Supply Chain Management Systems" (traduzir para o português) (várias referências). Além disso, a característica descentralizada do BC pode diminuir a pressão sobre servidores centralizados, para gerenciar infraestruturas de chaves públicas ou gerenciamento de sistemas de identidades (várias referências). Como contribuição apresenta uma análise crítica sobre mecanismos de defesa da privacidade no BC. 1) Definindo a privacidade além do usuário, incluindo a privacidade da transação. 2) Introduzindo ameaças existentes tanto para o usuário quanto para a transação no BC. 3) Introduzindo diversas tecnologias, especialmente técnicas de criptografia, que são usadas para proteger a privacidade no BC. 4) Os pontos para enteder a origem, objetivo e drawback de cada approach de proteção. 5) Avaliando o impacto de vários métodos para preservar a privacidade, em diversos protocolos em uso.
+
+Do ponto de vista de \cite{Schwerin2018} mostra que os especialistas que responderam aos seus questionamentos no seu estudo "delphi", que o BC não deve capturar dados pessoais de seus usuários. Feng apresenta mecanismos de privacidade, incluindo a criptografia. % Melhorar esse parágrafo, adicionar outros autores que apontam para soluções off-chain. Talvez a LGPD, tem um artigo do Teixeira, que menciona algo nesse sentido.
+
+% Identificar trabalhos que apontam soluções para gravar dados "off-chain", apontar para as referências. O objetivo disso é mostrar o esforço que esses pesquisadores tem em relação a compliance com a LGPD e GDPR.
+
+% Currently,  over  50  million  people  use  several   Social   Networking   Sites   (SNS)   and   have   made   available  a  vast  amount  of  PII  on  these  sites.  All  these  SNS  sites, other websites and mobile applications offer sign in or registration  for  premium  services.  PII  are  often  utilized  by  organizations  to  authenticate  a  customer’s  identity.  Since  most of these SNS sites and applications are for free, several studies found PII breaching by these organizations. Actually, these  organizations  store,  distribute,  analyse  sensitive  PII  information in order to generate business model through user profiling.  Tech  giants  uses  third  party  service  providing \cite{Al-ZabenNasr2018:article}
+
+\cite{article:BegumSNausheenF2018} Segurança dos Dados e Privacidade. Segundo Begum e Nausheen \cite{article:BegumSNausheenF2018}, segurança dos dados é comumente conhecida como confidencialidade, disponibilidade e integridade dos dados, garantindo que os dados não sejam usados por usuários não autorizados. Um plano de segurança de dados inclui apenas coletar as informações necessárias, mantê-las seguras e destruir qualquer informação que não seja mais necessária. Ainda, a privacidade dos dados é definida como o uso apropriado dos dados. Quando empresas e comerciantes usam dados ou informações que lhe são fornecidos, os dados devem ser usados de acordo com os fins acordados, sem divulgar as informações do consumidor. As abordagens para alcançar a privacidade são: encriptação, inclusão de ruídos e anonimização.
+
+% Aqui abrimos para expandir cada um dos assuntos.
+
+\chapter{Mecanismos de Privacidade}
+Begum \cite{article:BegumSNausheenF2018}.
+
+\chapter{Privacidade Diferencial}
+\label{cap:privacidadediferencial}
+
+\chapter{Privacidade no Blockchain}
+\label{cap:blockchain}
+Feng \cite{Feng2019}.
+
+\section{Privacidade Diferencial no Blockchain}
+Hassam \cite{Hassan2020}. % Deveria ser o survey.
+
 \chapter{Alguns exemplos}
 \label{cap:exemplos}
 
@@ -16,7 +96,7 @@ Para aprender a usar \LaTeX, um bom guia introdutório disponível na Internet �
 
 \section{Estrutura do texto}
 
-Para melhorar a legibilidade do texto, deve ser evitado o uso de subdivisões mais profundas que a subseção (por exemplo, subsubseções). Se elas forem absolutamente necessarias, não devem ser numeradas. Deve-se analisar a possibilidade de uso de uma lista de itens em seu lugar. O número de níveis de texto do documento não deve exceder três: capítulo, seção e subseção. O uso de mais que três níveis dificulta a leitura e prejudica muito a estética do texto.
+Para melhorar a legibilidade do texto, deve ser evitado o uso de subdivisões mais profundas que a subseção (por exemplo, subsubseções). Se elas forem absolutamente necessárias, não devem ser numeradas. Deve-se analisar a possibilidade de uso de uma lista de itens em seu lugar. O número de níveis de texto do documento não deve exceder três: capítulo, seção e subseção. O uso de mais que três níveis dificulta a leitura e prejudica muito a estética do texto.
 
 %=====================================================
 
