@@ -1,7 +1,8 @@
-\chapter{Fundamentação teórica}
-\label{cap:fundamentacao}
-
-% Mind Map para Fundamentação: https://bit.ly/3P5rG3q
+\chapter{Privacidade}
+\label{cap:privacidade}
+% \chapter{Fundamentação teórica}
+% \label{cap:fundamentacao}
+% Mind Map para Fundamentação te: https://bit.ly/3P5rG3q
 
 % Durante o estudo bibliográfico, foram lidos diversos artigos sobre a privacidade vs BC. O trabalho é organizar os artigos, criando um texto que convença o leitor de que eles são interligados e mostram cada ponto necessário para a resolução do problema, o objetivo e a justificativa vão ser incluídos posteriormente.
 
@@ -17,18 +18,26 @@ Na segurança de dados os termos dados pessoais, informações pessoais ou Infor
 
 % No trabalho de Schwerin2018 menciona-se que PII e privacidade são termos intercambiáveis. Estou procurando uma forma de adicionar essa idéia na tese.
 
-Segundo Schwerin \cite{Schwerin2018} a definição de PII muda com o desenvolvimento de tecnologias como blockchain, IA, Big Data e Internet das coisas (Internet of Things - IoT), pois aumentam a chance de reidentificar os dados. %apud 16.
+Segundo \citet{Schwerin2018} a definição de PII muda com o desenvolvimento de tecnologias como blockchain, IA, Big Data e Internet das coisas (Internet of Things - IoT), pois aumentam a chance de reidentificar os dados. %apud 16.
 Quase todos os dispositivos digitais usados por humanos e conectados à internet podem ser usados para rastrear sua origem. %(apud [17]).
 Como esse tipo de dado está frequentemente ligado à identidade de um ser humano, ele deve ser protegido da mesma forma que outros direitos que esse indivíduo possui.
 
-\textit{Parágrafo rascunho:} A legislação de proteção de dados ... O esforço inicial para proteção dos dados pessoais nasceu em XXX, onde a GDPR tornou-se popular por elevar ao patamar de lei a um grande número de habitantes, bloco europeu. Incentivando outros países a criar regras para proteção de dados e punições para vazamento de dados. Destinações e permissões de uso dos dados.
+O aumento da coleta de dados pessoais pelas organizações trouxe riscos e desafios a segurança \citep{Teixeira2019:article}. Em 2012 o conselho da união européia começa a trabalhar na regulamentação EU 2016/679, entrando em vigor em 25 de maio de 2018. Segundo \citet{gabriela_eu_2018:article} e \citet{Teixeira2019:article}, a nova lei revoga as diretrizes 95/46/EC, conhecida como a norma de proteção de dados da UE (EU Data Protection Directive). Com a intenção de dar mais controle aos cidadãos sobre seus dados pessoais, a GDPR impõe um conjunto de obrigações em respeito a guarda, processamento, coleta e divulgação de dados. A regulação é válida para qualquer organização que processe os dados e prevê multas pesadas quando a não conformidade com as regras são detectadas \citep{EuropeanCommission2016:misc}.
+
+Nesse contexto as empresas e governos fazem o papel de concentradores de dados, onde os usuários possuem um controle limitado sobre suas informações. As SNS (Social Network Sites) estão no foco principal, pois seus usuários disponibilizam uma grande quantidade de informações pessoas para esses sites. Para gerar modelos de negócios, essas organizações armazenam, distribuem, analisam informações confidenciais de PII de seus usuários \cite{Al-ZabenNasr2018:article}. Em abril de 2018, veio a público o caso da Cambridge Analytica, onde 50 milhões de perfis de usuários do Facebook foram violados. Apontado como o maior vazamento de dados pessoais até aquele momento foram usados para criar ferramentas que direcionavam propagandas baseadas nos perfis coletados no Facebook, com o objetivo de influenciar as eleições americanas em 2015.
+
+%e plataformas afins fazem a coleta de dados de PII \citep{Al-ZabenNasr2018:article}. Em busca de um ambiente mais aberto, a tecnologia BC ou DLT vem direcionar o direito de uso da PII para o usuário, assim como está definido na GDPR. Em contrapartida contra a centralização de dados, o BC é uma resposta.... 
+
+Para contrapor a grande concentração de dados de SNS --- temos tecnologias descentralizadas como o Blockchain. temos algumas respostas, como o Blockchain \citep{Schwerin2018}.
+
+Para restaurar a confiança no mundo digital, uma solução proposta é a tecnologia Blockchain (abreviação BC) \citep{Schwerin2018}. Inicialmente a tecnologia foi desenvolvida para gerar transparência em transações financeiras envolvendo a criptomoeda Bitcoin \citep{Nakamoto2009}. Ultimamente a tecnologia tem ganho atenção de pesquisadores que vão além das transações financeiras envolvendo criptoativos \citep{Al-ZabenNasr2018:article}.
 
 \textit{Parágrafo rascunho:} 
 O Big data parece ter sido o motivador de tais ações de proteção de dados. A forma como empresas tem usado os dados de seus usuários, por centralizar essas informações em seus servidores. Sem fiscalização. Aprendizado de máquina sem o consentimento explicito do usuário. 
 
 % Não esquecer de mencionar a parte de segurança da DLT.
 \textit{Parágrafo rascunho:} 
-Em contrapartida contra a centralização do dados, temos o BC \cite{Nakamoto2009}, que inicialmente foi uma tecnologia utilizada para gerar transparência no Bitcoin. Logo encontrou outros usos, permitindo que a confiança seja distribuída, retornando o controle da identidade ao próprio usuário. Mesmo assim a DLT encontra problemas próprios, como a identificação de um usuário. Trabalhos como XXX, XXX, XXX e XXXX falam dos problemas e soluções para o uso da DLT na era da GDPR e afins.
+Em contrapartida contra a centralização do dados, temos o BC \citep{Nakamoto2009}, que inicialmente foi uma tecnologia utilizada para gerar transparência no Bitcoin. Logo encontrou outros usos, permitindo que a confiança seja distribuída, retornando o controle da identidade ao próprio usuário. Mesmo assim a DLT encontra problemas próprios, como a identificação de um usuário. Trabalhos como XXX, XXX, XXX e XXXX falam dos problemas e soluções para o uso da DLT na era da GDPR e afins.
 
 % Podemos falar da privacidade na DLT.
 
@@ -36,7 +45,9 @@ Em contrapartida contra a centralização do dados, temos o BC \cite{Nakamoto200
 
 % BC é uma tecnologia que chegou para ficar, dados escritos são imutáveis e a prova de fraudes. Mas é um risco ao PII/Privacidade do usuário, que pode ser utilizado de maneira "evil" (ver nos artigos, existe uma forma melhor de referir-se ao abuso de dados, normalmente praticado por empresas) por indivíduos ou empresas.
 
-Direito a privacidade na Blockchain. Como proteger os dados pessoais tem se tornado um tema cada vez mais importante \cite{Schwerin2018}. Uma preocupação crescente com o uso feito dos dados por grandes corporações. \cite{dsguaman[6]Privacy vs Data protection vs Information Security}. Se o BC (Blockchain) precisa estar em compliance com a GDPR, pergunta: é possível? Se sim, o que precisa ser feito?
+Direito a privacidade na Blockchain. Como proteger os dados pessoais tem se tornado um tema cada vez mais importante \citep{Schwerin2018}. Uma preocupação crescente com o uso feito dos dados por grandes corporações. \cite{dsguaman} 
+%[6]Privacy vs Data protection vs Information Security}. 
+Se o BC (Blockchain) precisa estar em compliance com a GDPR, pergunta: é possível? Se sim, o que precisa ser feito?
 
 
 No ecossistema da BC \cite{Schwerin2018} menciona sobre a evolução e mudança de paradigma que irá influenciar cada fragmento do mundo que conhecemos, apud [10].
@@ -53,6 +64,7 @@ De acordo com Al-Zaben \cite{Al-ZabenNasr2018:article}, um número significativo
 
 Feng, no survey \cite{Feng2019} sobre proteção da privacidade no BC. Afirma que o BC é uma tecnologia disruptiva que funciona de maneira descentralizada. Sendo a tecnologia base para moedas digitais, como Bitcoin, operando de maneira distribuída sem o uso de uma entidade central.
 
+% Parágrafo pode ir na seção de Blockchain - foco em IoT.
 % Feng menciona o uso da tecnologia BC em IoT, por ser equipada com uma topologia descentralizada. O gerenciamento de equipamentos pode ser automatizado e a sincronização de dados pode ser fácil e rápida entre dispositivos IoT (Hud et al, 2017; Dorri et al. 2016; Conoscenti et al., 2016). Além disso o BC melhora a transparência e rastreabilidade de propriedade "Supply Chain Management Systems" (traduzir para o português) (várias referências). Além disso, a característica descentralizada do BC pode diminuir a pressão sobre servidores centralizados, para gerenciar infraestruturas de chaves públicas ou gerenciamento de sistemas de identidades (várias referências). Como contribuição apresenta uma análise crítica sobre mecanismos de defesa da privacidade no BC. 1) Definindo a privacidade além do usuário, incluindo a privacidade da transação. 2) Introduzindo ameaças existentes tanto para o usuário quanto para a transação no BC. 3) Introduzindo diversas tecnologias, especialmente técnicas de criptografia, que são usadas para proteger a privacidade no BC. 4) Os pontos para enteder a origem, objetivo e drawback de cada approach de proteção. 5) Avaliando o impacto de vários métodos para preservar a privacidade, em diversos protocolos em uso.
 
 Do ponto de vista de \cite{Schwerin2018} mostra que os especialistas que responderam aos seus questionamentos no seu estudo "delphi", que o BC não deve capturar dados pessoais de seus usuários. Feng apresenta mecanismos de privacidade, incluindo a criptografia. % Melhorar esse parágrafo, adicionar outros autores que apontam para soluções off-chain. Talvez a LGPD, tem um artigo do Teixeira, que menciona algo nesse sentido.
