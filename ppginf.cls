@@ -18,6 +18,7 @@
 % \instit{short}{long}	: instituição (abreviado e por extenso)
 % \advisor{Nome}	: define o orientador
 % \coadvisor{Nome}	: define o coorientador, se houver
+% \coadvisorsec{Nome} : define o segundo coorientador, se houver
 % \field{Área}		: define a área de concentração da pesquisa
 % \local{Cidade}	: define o local da defesa
 % \keywords{}{}...	: define três palavras-chave e três keywords
@@ -448,6 +449,7 @@
 % valores default (não mudá-los, pois poderão ser testados em macros)
 \def\@advisor{}			% orientador
 \def\@coadvisor{}		% coorientador
+\def\@coadvisorsec{}    % coorientador - 2
 \def\@field{}			% área de concentração
 \def\@local{}			% local
 \def\@descr{}			% descrição do documento
@@ -469,6 +471,7 @@
 % orientadores
 \newcommand{\advisor}[1]{\def\@advisor{#1}}
 \newcommand{\coadvisor}[1]{\def\@coadvisor{#1}}
+\newcommand{\coadvisorsec}[1]{\def\@coadvisorsec{#1}}
 
 % área/tema do texto
 \newcommand{\field}[1]{\def\@field{#1}}
@@ -746,12 +749,20 @@
       \@tagadvisor: \@advisor.
     \fi
 
-    % coorientador, se estiver definido em main.tex
+    % coorientador1, se estiver definido em main.tex
     \ifx\@coadvisor\@empty
     \else
       % 1 linha espaço 1.5
       \vspace{1em}
       \@tagcoadvisor: \@coadvisor.
+    \fi
+    
+    % coorientador, se estiver definido em main.tex
+    \ifx\@coadvisorsec\@empty
+    \else
+      % 1 linha espaço 1.5
+      \vspace{1em}
+      \@tagcoadvisor: \@coadvisorsec.
     \fi
 
   \end{footnotesize}
